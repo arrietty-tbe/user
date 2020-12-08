@@ -25450,7 +25450,7 @@
                     className: "alert alert-danger"
                 }, c.plan_id !== parseInt(this.props.match.params.plan_id) ? i.a.createElement("p", {
                     className: "mb-0 font-w700"
-                }, "您购买后的套餐为:" + t.name + "," + "您目前的套餐将失效") : i.a.createElement("p", {
+                }, "您购买后的套餐为:" + t.name + "," + "您的其它套餐将失效") : i.a.createElement("p", {
                     class: "mb-0 font-w700"
                 }, "本站备用域名 ", i.a.createElement("a", {
                     class: "alert-pink",
