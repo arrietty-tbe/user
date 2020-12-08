@@ -25434,8 +25434,6 @@
                 var e = this.props.plan,
                     t = e.plan,
                     n = e.selectCycle,
-                    z = this.props.user,
-                    k = z.subscribe,
                     a = e.fetchLoading,
                     c = this.props.user.userInfo,
                     f = this.props.order.saveLoading;
@@ -25452,7 +25450,7 @@
                     className: "alert alert-danger"
                 }, c.plan_id !== parseInt(this.props.match.params.plan_id) ? i.a.createElement("p", {
                     className: "mb-0 font-w700"
-                }, "您购买后的套餐为:" + t.name + "," + "您的"+ k.plan.name + "将失效") : i.a.createElement("p", {
+                }, "您购买后的套餐为:" + t.name + "," + "您目前的套餐将失效") : i.a.createElement("p", {
                     class: "mb-0 font-w700"
                 }, "本站备用域名 ", i.a.createElement("a", {
                     class: "alert-pink",
