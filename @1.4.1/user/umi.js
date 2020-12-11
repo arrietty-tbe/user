@@ -1102,7 +1102,7 @@
         var U = [V, B];
 
         function z(e, t, n) {
-            return m({}, n, {}, e, {}, t)
+            return m({}, n, e, t)
         }
 
         function W(e) {
@@ -1850,6 +1850,16 @@
             throw new TypeError("Invalid attempt to destructure non-iterable instance")
         }
         e.exports = n
+    },
+    "1EPD": function(e, t, n) {
+        "use strict";
+
+        function r(e, t) {
+            e.prototype = Object.create(t.prototype), e.prototype.constructor = e, e.__proto__ = t
+        }
+        n.d(t, "a", function() {
+            return r
+        })
     },
     "1M3H": function(e, t, n) {
         "use strict";
@@ -4339,7 +4349,7 @@
         })("versions", []).push({
             version: r.version,
             mode: n("uOPS") ? "pure" : "global",
-            copyright: "\xa9 2019 Denis Pushkarev (zloirock.ru)"
+            copyright: "\xa9 2020 Denis Pushkarev (zloirock.ru)"
         })
     },
     "2GS6": function(e, t, n) {
@@ -8117,105 +8127,110 @@
     },
     "8ifW": function(e, t, n) {
         "use strict";
-        var r = n("q1tI"),
-            o = n.n(r),
-            a = n("xbZt"),
-            i = n.n(a),
-            s = n("17x9"),
-            c = n.n(s),
-            l = n("fZtv"),
-            u = n.n(l),
-            f = 1073741823;
+        (function(e) {
+            var r = n("q1tI"),
+                o = n.n(r),
+                a = n("1EPD"),
+                i = n("17x9"),
+                s = n.n(i),
+                c = 1073741823,
+                l = "undefined" !== typeof globalThis ? globalThis : "undefined" !== typeof window ? window : "undefined" !== typeof e ? e : {};
 
-        function p(e, t) {
-            return e === t ? 0 !== e || 1 / e === 1 / t : e !== e && t !== t
-        }
+            function u() {
+                var e = "__global_unique_id__";
+                return l[e] = (l[e] || 0) + 1
+            }
 
-        function d(e) {
-            var t = [];
-            return {
-                on: function(e) {
-                    t.push(e)
-                },
-                off: function(e) {
-                    t = t.filter(function(t) {
-                        return t !== e
-                    })
-                },
-                get: function() {
-                    return e
-                },
-                set: function(n, r) {
-                    e = n, t.forEach(function(t) {
-                        return t(e, r)
-                    })
+            function f(e, t) {
+                return e === t ? 0 !== e || 1 / e === 1 / t : e !== e && t !== t
+            }
+
+            function p(e) {
+                var t = [];
+                return {
+                    on: function(e) {
+                        t.push(e)
+                    },
+                    off: function(e) {
+                        t = t.filter(function(t) {
+                            return t !== e
+                        })
+                    },
+                    get: function() {
+                        return e
+                    },
+                    set: function(n, r) {
+                        e = n, t.forEach(function(t) {
+                            return t(e, r)
+                        })
+                    }
                 }
             }
-        }
 
-        function h(e) {
-            return Array.isArray(e) ? e[0] : e
-        }
+            function d(e) {
+                return Array.isArray(e) ? e[0] : e
+            }
 
-        function m(e, t) {
-            var n, o, a = "__create-react-context-" + u()() + "__",
-                s = function(e) {
-                    function n() {
-                        var t;
-                        return t = e.apply(this, arguments) || this, t.emitter = d(t.props.value), t
-                    }
-                    i()(n, e);
-                    var r = n.prototype;
-                    return r.getChildContext = function() {
-                        var e;
-                        return e = {}, e[a] = this.emitter, e
-                    }, r.componentWillReceiveProps = function(e) {
-                        if (this.props.value !== e.value) {
-                            var n, r = this.props.value,
-                                o = e.value;
-                            p(r, o) ? n = 0 : (n = "function" === typeof t ? t(r, o) : f, n |= 0, 0 !== n && this.emitter.set(e.value, n))
+            function h(e, t) {
+                var n, o, i = "__create-react-context-" + u() + "__",
+                    l = function(e) {
+                        function n() {
+                            var t;
+                            return t = e.apply(this, arguments) || this, t.emitter = p(t.props.value), t
                         }
+                        Object(a["a"])(n, e);
+                        var r = n.prototype;
+                        return r.getChildContext = function() {
+                            var e;
+                            return e = {}, e[i] = this.emitter, e
+                        }, r.componentWillReceiveProps = function(e) {
+                            if (this.props.value !== e.value) {
+                                var n, r = this.props.value,
+                                    o = e.value;
+                                f(r, o) ? n = 0 : (n = "function" === typeof t ? t(r, o) : c, n |= 0, 0 !== n && this.emitter.set(e.value, n))
+                            }
+                        }, r.render = function() {
+                            return this.props.children
+                        }, n
+                    }(r["Component"]);
+                l.childContextTypes = (n = {}, n[i] = s.a.object.isRequired, n);
+                var h = function(t) {
+                    function n() {
+                        var e;
+                        return e = t.apply(this, arguments) || this, e.state = {
+                            value: e.getValue()
+                        }, e.onUpdate = function(t, n) {
+                            var r = 0 | e.observedBits;
+                            0 !== (r & n) && e.setState({
+                                value: e.getValue()
+                            })
+                        }, e
+                    }
+                    Object(a["a"])(n, t);
+                    var r = n.prototype;
+                    return r.componentWillReceiveProps = function(e) {
+                        var t = e.observedBits;
+                        this.observedBits = void 0 === t || null === t ? c : t
+                    }, r.componentDidMount = function() {
+                        this.context[i] && this.context[i].on(this.onUpdate);
+                        var e = this.props.observedBits;
+                        this.observedBits = void 0 === e || null === e ? c : e
+                    }, r.componentWillUnmount = function() {
+                        this.context[i] && this.context[i].off(this.onUpdate)
+                    }, r.getValue = function() {
+                        return this.context[i] ? this.context[i].get() : e
                     }, r.render = function() {
-                        return this.props.children
+                        return d(this.props.children)(this.state.value)
                     }, n
                 }(r["Component"]);
-            s.childContextTypes = (n = {}, n[a] = c.a.object.isRequired, n);
-            var l = function(t) {
-                function n() {
-                    var e;
-                    return e = t.apply(this, arguments) || this, e.state = {
-                        value: e.getValue()
-                    }, e.onUpdate = function(t, n) {
-                        var r = 0 | e.observedBits;
-                        0 !== (r & n) && e.setState({
-                            value: e.getValue()
-                        })
-                    }, e
+                return h.contextTypes = (o = {}, o[i] = s.a.object, o), {
+                    Provider: l,
+                    Consumer: h
                 }
-                i()(n, t);
-                var r = n.prototype;
-                return r.componentWillReceiveProps = function(e) {
-                    var t = e.observedBits;
-                    this.observedBits = void 0 === t || null === t ? f : t
-                }, r.componentDidMount = function() {
-                    this.context[a] && this.context[a].on(this.onUpdate);
-                    var e = this.props.observedBits;
-                    this.observedBits = void 0 === e || null === e ? f : e
-                }, r.componentWillUnmount = function() {
-                    this.context[a] && this.context[a].off(this.onUpdate)
-                }, r.getValue = function() {
-                    return this.context[a] ? this.context[a].get() : e
-                }, r.render = function() {
-                    return h(this.props.children)(this.state.value)
-                }, n
-            }(r["Component"]);
-            return l.contextTypes = (o = {}, o[a] = c.a.object, o), {
-                Provider: s,
-                Consumer: l
             }
-        }
-        var y = o.a.createContext || m;
-        t["a"] = y
+            var m = o.a.createContext || h;
+            t["a"] = m
+        }).call(this, n("yLpj"))
     },
     "8jRI": function(e, t, n) {
         "use strict";
@@ -10943,16 +10958,6 @@
         }
 
         function h(e, t) {
-            return !t || "object" !== typeof t && "function" !== typeof t ? b(e) : t
-        }
-
-        function m(e) {
-            return m = Object.setPrototypeOf ? Object.getPrototypeOf : function(e) {
-                return e.__proto__ || Object.getPrototypeOf(e)
-            }, m(e)
-        }
-
-        function y(e, t) {
             if ("function" !== typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
             e.prototype = Object.create(t && t.prototype, {
                 constructor: {
@@ -10960,13 +10965,29 @@
                     writable: !0,
                     configurable: !0
                 }
-            }), t && v(e, t)
+            }), t && m(e, t)
+        }
+
+        function m(e, t) {
+            return m = Object.setPrototypeOf || function(e, t) {
+                return e.__proto__ = t, e
+            }, m(e, t)
+        }
+
+        function y(e) {
+            var t = g();
+            return function() {
+                var n, r = w(e);
+                if (t) {
+                    var o = w(this).constructor;
+                    n = Reflect.construct(r, arguments, o)
+                } else n = r.apply(this, arguments);
+                return v(this, n)
+            }
         }
 
         function v(e, t) {
-            return v = Object.setPrototypeOf || function(e, t) {
-                return e.__proto__ = t, e
-            }, v(e, t)
+            return !t || "object" !== typeof t && "function" !== typeof t ? b(e) : t
         }
 
         function b(e) {
@@ -10974,7 +10995,24 @@
             return e
         }
 
-        function g(e, t, n) {
+        function g() {
+            if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
+            if (Reflect.construct.sham) return !1;
+            if ("function" === typeof Proxy) return !0;
+            try {
+                return Date.prototype.toString.call(Reflect.construct(Date, [], function() {})), !0
+            } catch (e) {
+                return !1
+            }
+        }
+
+        function w(e) {
+            return w = Object.setPrototypeOf ? Object.getPrototypeOf : function(e) {
+                return e.__proto__ || Object.getPrototypeOf(e)
+            }, w(e)
+        }
+
+        function _(e, t, n) {
             return t in e ? Object.defineProperty(e, t, {
                 value: n,
                 enumerable: !0,
@@ -10982,29 +11020,32 @@
                 writable: !0
             }) : e[t] = n, e
         }
-        var w = n("TSYQ"),
-            _ = function(e) {
-                function t(e) {
-                    var n;
-                    f(this, t), n = h(this, m(t).call(this, e)), g(b(b(n)), "handleClick", function(e) {
-                        var t = n.state.checked,
-                            r = n.props.onClick,
+        var x = n("TSYQ"),
+            O = function(e) {
+                h(n, e);
+                var t = y(n);
+
+                function n(e) {
+                    var r;
+                    f(this, n), r = t.call(this, e), _(b(r), "handleClick", function(e) {
+                        var t = r.state.checked,
+                            n = r.props.onClick,
                             o = !t;
-                        n.setChecked(o, e), r && r(o, e)
-                    }), g(b(b(n)), "handleKeyDown", function(e) {
-                        37 === e.keyCode ? n.setChecked(!1, e) : 39 === e.keyCode && n.setChecked(!0, e)
-                    }), g(b(b(n)), "handleMouseUp", function(e) {
-                        var t = n.props.onMouseUp;
-                        n.node && n.node.blur(), t && t(e)
-                    }), g(b(b(n)), "saveNode", function(e) {
-                        n.node = e
+                        r.setChecked(o, e), n && n(o, e)
+                    }), _(b(r), "handleKeyDown", function(e) {
+                        37 === e.keyCode ? r.setChecked(!1, e) : 39 === e.keyCode && r.setChecked(!0, e)
+                    }), _(b(r), "handleMouseUp", function(e) {
+                        var t = r.props.onMouseUp;
+                        r.node && r.node.blur(), t && t(e)
+                    }), _(b(r), "saveNode", function(e) {
+                        r.node = e
                     });
-                    var r = !1;
-                    return r = "checked" in e ? !!e.checked : !!e.defaultChecked, n.state = {
-                        checked: r
-                    }, n
+                    var o = !1;
+                    return o = "checked" in e ? !!e.checked : !!e.defaultChecked, r.state = {
+                        checked: o
+                    }, r
                 }
-                return y(t, e), d(t, [{
+                return d(n, [{
                     key: "componentDidMount",
                     value: function() {
                         var e = this.props,
@@ -11044,7 +11085,7 @@
                             u = t.unCheckedChildren,
                             f = l(t, ["className", "prefixCls", "disabled", "loadingIcon", "checkedChildren", "unCheckedChildren"]),
                             p = this.state.checked,
-                            d = w((e = {}, g(e, n, !!n), g(e, r, !0), g(e, "".concat(r, "-checked"), p), g(e, "".concat(r, "-disabled"), a), e));
+                            d = x((e = {}, _(e, n, !!n), _(e, r, !0), _(e, "".concat(r, "-checked"), p), _(e, "".concat(r, "-disabled"), a), e));
                         return o.a.createElement("button", c({}, f, {
                             type: "button",
                             role: "switch",
@@ -11066,9 +11107,9 @@
                             n = e.checked;
                         return "checked" in e && (t.checked = !!n), t
                     }
-                }]), t
+                }]), n
             }(r["Component"]);
-        _.propTypes = {
+        O.propTypes = {
             className: i.a.string,
             prefixCls: i.a.string,
             disabled: i.a.bool,
@@ -11082,13 +11123,13 @@
             defaultChecked: i.a.bool,
             autoFocus: i.a.bool,
             loadingIcon: i.a.node
-        }, _.defaultProps = {
+        }, O.defaultProps = {
             prefixCls: "rc-switch",
             checkedChildren: null,
             unCheckedChildren: null,
             className: "",
             defaultChecked: !1
-        }, Object(s["polyfill"])(_), t["default"] = _
+        }, Object(s["polyfill"])(O), t["default"] = O
     },
     Cvbg: function(e, t, n) {
         e.exports = n("r6D9")()
@@ -12659,6 +12700,7 @@
             "commission_status.pending_confirm": "\u0111\u01b0\u1ee3c x\xe1c nh\u1eadn",
             "commission_status.confirm": "\u0111\xe3 x\xe1c nh\u1eadn",
             "commission_status.done": "Ho\xe0n th\xe0nh",
+            "commission_status.reject": "kh\xf4ng h\u1ee3p",
             "header.user_center": "Trung t\xe2m ki\u1ec3m so\xe1t",
             "header.logout": "\u0111\u0103ng xu\u1ea5t",
             "header.search": "T\xecm ki\u1ebfm",
@@ -12673,7 +12715,7 @@
             "nav.user_center": "Trung T\xe2m Ki\u1ec3m So\xe1t",
             "nav.my_ticket": "Li\xean H\u1ec7 V\u1edbi Ch\xfang T\xf4i",
             "nav.traffic_detail": "Chi Ti\u1ebft Dung L\u01b0\u1ee3ng",
-            "nav.knowledge": "ki\u1ebfn th\u1ee9c c\u01a1 b\u1ea3n",
+            "nav.knowledge": "Ki\u1ebfn th\u1ee9c c\u01a1 b\u1ea3n",
             "dashboard.not_bind_telegram": "Ch\u01b0a th\xeam li\xean k\u1ebftTelegram",
             "dashboard.click_here_bind": "Nh\u1ea5p v\xe0o \u0111\xe2y \u0111\u1ec3 th\xeam li\xean k\u1ebft",
             "dashboard.announcement": "Th\xf4ng b\xe1o",
@@ -12753,9 +12795,11 @@
             "plan.order_total_amount": "T\u1ed5ng c\u1ed9ng",
             "plan.place_order": "\u0110\u1eb7t h\xe0ng",
             "plan.total": "T\u1ed5ng c\u1ed9ng",
+            "plan.subscribe_change_title": "Th\xf4ng b\xe1o v\u1ec1 g\xf3i d\u1ecbch v\u1ee5 thay \u0111\u1ed5i",
+            "plan.subscribe_change_content": "Vi\u1ec7c thay \u0111\u1ed5i g\xf3i d\u1ecbch v\u1ee5 m\u1edbi s\u1ebd khi\u1ebfn g\xf3i hi\u1ec7n t\u1ea1i b\u1ecb ghi \u0111\xe8 b\u1edfi \u0111\u0103ng k\xfd m\u1edbi, xin l\u01b0u \xfd",
             "profile.user_center": "Trung t\xe2m ki\u1ec3m so\xe1t",
             "profile.my_wallet": "V\xed ti\u1ec1n c\u1ee7a t\xf4i",
-            "profile.balance_tip": "S\xf4 d\u01b0 t\xe0i kho\u1ea3n",
+            "profile.balance_tip": "S\u1ed1 d\u01b0 t\xe0i kho\u1ea3n",
             "profile.commission_balance_tip": "Ti\u1ec1n hoa h\u1ed3ng (c\xf3 th\u1ec3 r\xfat)",
             "profile.wallet_component": "Th\xe0nh ph\u1ea7n c\u1ea5u t\u1ea1o v\xed ti\u1ec1n",
             "profile.transfer": "Chuy\u1ec3n \u0111\u1ed5i",
@@ -12850,7 +12894,7 @@
             "traffic.table_rx": "Th\u1ef1c t\u1ebf t\u1ea3i xu\u1ed1ng",
             "traffic.table_rate": "B\u1ed9i su\u1ea5t",
             "traffic.table_total": "T\u1ed5ng dung l\u01b0\u1ee3ng",
-            "traffic.table_total_tip": "C\xf4ng th\u1ee9c : ( Th\u1ee9c t\u1ebf t\u1ea3i l\xean + th\u1ef1c t\u1ebf t\u1ea3i xu\u1ed1ng ) x  b\u1ed9i su\u1ea5t = Dung l\u01b0\u1ee3ng \u0111\xe3 s\u1eed d\u1ee5ng",
+            "traffic.table_total_tip": "C\xf4ng th\u1ee9c : ( Th\u1ef1c t\u1ebf t\u1ea3i l\xean + Th\u1ef1c t\u1ebf t\u1ea3i xu\u1ed1ng ) x  B\u1ed9i su\u1ea5t = Dung l\u01b0\u1ee3ng \u0111\xe3 s\u1eed d\u1ee5ng",
             "traffic.traffic_detail": "Chi ti\u1ebft dung l\u01b0\u1ee3ng",
             "traffic.today": "H\xf4m nay",
             "traffic.month": "Th\xe1ng n\xe0y",
@@ -12858,7 +12902,7 @@
             "one_click_subscribe.copy_success": "Sao ch\xe9p th\xe0nh c\xf4ng",
             "one_click_subscribe.copy_subscribe_url": "Sao ch\xe9p li\xean k\u1ebft",
             "one_click_subscribe.import": "Chuy\u1ec3n \u0111\u1ebfn",
-            one_click_subscribe: "Nh\u1eadp chu\u1ed9t \u0111\u1ec3 \u0111\u1ed3ng b\u1ed9 m\xe1y ch\u1ee7",
+            one_click_subscribe: "Nh\u1ea5p chu\u1ed9t \u0111\u1ec3 \u0111\u1ed3ng b\u1ed9 m\xe1y ch\u1ee7",
             "one_click_subscribe.copy_subscribe": "Sao ch\xe9p li\xean k\u1ebft",
             "transfer_modal.title": "Ti\u1ec1n hoa h\u1ed3ng chuy\u1ec3n sang t\xe0i kho\u1ea3n c\u1ee7a b\u1ea1n",
             "transfer_modal.confirm": "X\xe1c nh\u1eadn",
@@ -12885,7 +12929,7 @@
             "bind_telegram_modal.step_2": "B\u01b0\u1edbc th\u1ee9 hai",
             "bind_telegram_modal.open_telegram_search": "B\u1eadt Telegram t\xecm ki\u1ebfm",
             "bind_telegram_modal.send_bot_message": "G\u1eedi cho bot",
-            knowledge: "ki\u1ebfn th\u1ee9c c\u01a1 b\u1ea3n",
+            knowledge: "Ki\u1ebfn th\u1ee9c c\u01a1 b\u1ea3n",
             "knowledge.last_release_date": "L\u1ea7n c\u1eadp nh\u1eadt cu\u1ed1i c\xf9ng v\xe0o: {date}"
         }
     },
@@ -13789,6 +13833,7 @@
             "commission_status.pending_confirm": "\u627f\u8a8d\u5f85\u3061",
             "commission_status.confirm": "\u627f\u8a8d\u6e08\u307f",
             "commission_status.done": "\u6e08\u307f",
+            "commission_status.reject": "\u7121\u52b9",
             "header.user_center": "\u4f1a\u54e1\u30e1\u30cb\u30e5\u30fc",
             "header.logout": "\u30ed\u30b0\u30a2\u30a6\u30c8",
             "header.search": "\u691c\u7d22",
@@ -13796,7 +13841,7 @@
             "nav.subscribe": "\u5b9a\u671f\u8cfc\u5165",
             "nav.my_subscribe": "\u3054\u5229\u7528\u4e2d\u306e\u5b9a\u671f\u8cfc\u5165",
             "nav.buy_subscribe": "\u5b9a\u671f\u8cfc\u5165\u306e\u3054\u6ce8\u6587",
-            "nav.bill": "\u30d5\u30a1\u30a4\u30ca\u30f3\u30b9\u306e\u6982\u8981",
+            "nav.bill": "\u30de\u30a4\u30d5\u30a1\u30a4\u30ca\u30f3\u30b9",
             "nav.my_order": "\u6ce8\u6587\u5c65\u6b74",
             "nav.my_invite": "\u62db\u5f85\u30e1\u30cb\u30e5\u30fc",
             "nav.user": "\u30e6\u30fc\u30b6\u30fc",
@@ -13805,11 +13850,11 @@
             "nav.traffic_detail": "\u30c7\u30fc\u30bf\u901a\u4fe1\u660e\u7d30",
             "nav.knowledge": "\u77e5\u8b58\u30d9\u30fc\u30b9",
             "dashboard.not_bind_telegram": "Telegram\u306f\u95a2\u9023\u4ed8\u3051\u3089\u308c\u3066\u3044\u307e\u305b\u3093",
-            "dashboard.click_here_bind": "\u30af\u30ea\u30c3\u30af\u3057\u3066\u95a2\u9023\u4ed8\u3051",
+            "dashboard.click_here_bind": "\u95a2\u9023\u4ed8\u3051\u3092\u958b\u59cb\u3059\u308b\u306b\u306f\u3053\u3061\u3089\u3092\u30af\u30ea\u30c3\u30af\u3057\u3066\u304f\u3060\u3055\u3044",
             "dashboard.announcement": "\u304a\u77e5\u3089\u305b",
             "dashboard.override": "\u6982\u8981",
             "dashboard.pending_order": "\u304a\u652f\u6255\u3044\u5f85\u3061",
-            "dashboard.pending_ticket": "\u3054\u5bfe\u5fdc\u4e2d\u306e\u304a\u554f\u3044\u5408\u308f\u305b",
+            "dashboard.pending_ticket": "\u5bfe\u5fdc\u4e2d\u306e\u304a\u554f\u3044\u5408\u308f\u305b",
             "dashboard.my_invite": "\u62db\u5f85\u6e08\u307f",
             "dashboard.my_subscribe": "\u3054\u5229\u7528\u4e2d\u306e\u5b9a\u671f\u8cfc\u5165",
             "dashboard.add_subscribe": "\u5b9a\u671f\u8cfc\u5165\u306e\u8ffd\u52a0\u8cfc\u5165",
@@ -13819,7 +13864,7 @@
             "dashboard.traffic_info": "\u4f7f\u7528\u6e08\u307f {used} / \u5408\u8a08 {total}",
             "dashboard.view_subscribe": "\u30b5\u30fc\u30d0\u30fc\u30b9\u30c6\u30fc\u30bf\u30b9",
             "dashboard.renew": "\u7d99\u7d9a\u6599\u91d1\u306e\u304a\u652f\u6255\u3044",
-            "forgetPassword.email": "E-MAIL",
+            "forgetPassword.email": "E\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9",
             "forgetPassword.email_verify_code": "\u627f\u8a8d\u30b3\u30fc\u30c9",
             "forgetPassword.send": "\u9001\u4fe1",
             "forgetPassword.password": "\u30d1\u30b9\u30ef\u30fc\u30c9",
@@ -13841,11 +13886,11 @@
             "invite.generate_code": "\u62db\u5f85\u30b3\u30fc\u30c9\u306e\u4f5c\u6210",
             "invite.detail": "\u62db\u5f85\u6e08\u307f\u660e\u7d30",
             "invite.copy_success": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u306b\u30b3\u30d4\u30fc\u3055\u308c\u307e\u3057\u305f",
-            "login.email": "E-MAIL",
+            "login.email": "E\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9",
             "login.password": "\u30d1\u30b9\u30ef\u30fc\u30c9",
             login: "\u30ed\u30b0\u30a4\u30f3",
             "login.register": "\u65b0\u898f\u767b\u9332",
-            "login.forget_password": "\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u304a\u5fd8\u308c\u306e\u5834\u5408\u306f[\u3053\u3061\u3089]",
+            "login.forget_password": "\u30d1\u30b9\u30ef\u30fc\u30c9\u3092\u304a\u5fd8\u308c\u306e\u65b9\u306f[\u3053\u3061\u3089]",
             "order.table_no": "# \u30aa\u30fc\u30c0\u30fc\u756a\u53f7",
             "order.table_cycle": "\u30bf\u30a4\u30d7/\u304a\u652f\u6255\u3044\u5468\u671f",
             "order.table_amount": "\u3054\u6ce8\u6587\u306e\u91d1\u984d",
@@ -13858,7 +13903,7 @@
             "order.please_select_pay_method": "\u304a\u652f\u6255\u3044\u65b9\u6cd5\u3092\u304a\u9078\u3073\u304f\u3060\u3055\u3044",
             "order.please_check_credit_card": "\u30af\u30ec\u30b8\u30c3\u30c8\u30ab\u30fc\u30c9\u306e\u304a\u652f\u6255\u3044\u60c5\u5831\u3092\u3054\u78ba\u8a8d\u304f\u3060\u3055\u3044",
             "order.order_detail": "\u6700\u7d42\u660e\u7d30\u306e\u3054\u78ba\u8a8d",
-            "order.product": "\u304a\u6e08\u307f\u306e\u5b9a\u671f\u8cfc\u5165",
+            "order.product": "\u304a\u9078\u3073\u306e\u5b9a\u671f\u8cfc\u5165",
             "order.type_cycle": "\u30bf\u30a4\u30d7/\u304a\u652f\u6255\u3044\u5468\u671f",
             "order.amount": "\u91d1\u984d",
             "order.traffic": "\u30c7\u30fc\u30bf\u901a\u4fe1\u91cf",
@@ -13883,6 +13928,8 @@
             "plan.order_total_amount": "\u3054\u6ce8\u6587\u306e\u5408\u8a08\u91d1\u984d",
             "plan.place_order": "\u6ce8\u6587&\u6700\u7d42\u78ba\u8a8d",
             "plan.total": "\u5408\u8a08",
+            "plan.subscribe_change_title": "\u5b9a\u671f\u8cfc\u5165\u30d7\u30e9\u30f3\u306e\u5909\u66f4\u306b\u4f34\u3046\u3054\u6ce8\u610f",
+            "plan.subscribe_change_content": "\u5b9a\u671f\u8cfc\u5165\u30d7\u30e9\u30f3\u3092\u5909\u66f4\u3055\u308c\u307e\u3059\u3068\u3001\u65e2\u5b58\u306e\u30d7\u30e9\u30f3\u304c\u65b0\u898f\u30d7\u30e9\u30f3\u306b\u3088\u3063\u3066\u4e0a\u66f8\u304d\u3055\u308c\u307e\u3059\u3001\u3054\u6ce8\u610f\u4e0b\u3055\u3044",
             "profile.user_center": "\u4f1a\u54e1\u30e1\u30cb\u30e5\u30fc",
             "profile.my_wallet": "\u30de\u30a4\u30a6\u30a9\u30ec\u30c3\u30c8",
             "profile.balance_tip": "\u6b8b\u9ad8(\u30b5\u30fc\u30d3\u30b9\u306e\u8cfc\u5165\u306e\u307f)",
@@ -13910,7 +13957,7 @@
             "profile.reset_info_notify_success": "\u5909\u66f4\u5b8c\u4e86",
             "profile.two_password_error": "\u3054\u5165\u529b\u3055\u308c\u307e\u3057\u305f\u65b0\u3057\u3044\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u4e00\u81f4\u3057\u307e\u305b\u3093",
             "register.two_password_error": "\u3054\u5165\u529b\u3055\u308c\u307e\u3057\u305f\u65b0\u3057\u3044\u30d1\u30b9\u30ef\u30fc\u30c9\u304c\u4e00\u81f4\u3057\u307e\u305b\u3093",
-            "register.email": "E-MAIL",
+            "register.email": "E\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9",
             "register.verify_code": "\u627f\u8a8d\u30b3\u30fc\u30c9",
             "register.password": "\u30d1\u30b9\u30ef\u30fc\u30c9",
             "register.re_password": "\u30d1\u30b9\u30ef\u30fc\u30c9",
@@ -13919,7 +13966,7 @@
             "register.invite_code": "\u62db\u5f85\u30b3\u30fc\u30c9(\u30aa\u30d7\u30b7\u30e7\u30f3)",
             register: "\u65b0\u898f\u767b\u9332",
             "register.back_login": "\u30ed\u30b0\u30a4\u30f3\u753b\u9762\u3078",
-            "subscribe.table_name": "\u540d\u79f0(\u79fb\u52a8\u8bbe\u5907\u5c4f\u5e55\u5de6\u6ed1\u67e5\u770b\u66f4\u591a\u8be6\u60c5->)",
+            "subscribe.table_name": "\u540d\u79f0",
             "subscribe.table_tag": "\u8aac\u660e",
             "subscribe.table_action": "\u30a2\u30af\u30b7\u30e7\u30f3",
             "subscribe.table_status": "\u30b9\u30c6\u30fc\u30bf\u30b9",
@@ -13957,11 +14004,11 @@
             "ticket.table_level": "\u304a\u554f\u3044\u5408\u308f\u305b\u512a\u5148\u5ea6",
             "ticket.table_status": "\u304a\u554f\u3044\u5408\u308f\u305b\u72b6\u6cc1",
             "ticket.table_create_time": "\u4f5c\u6210\u65e5\u4ed8",
-            "ticket.table_last_reply": "\u6700\u5f8c\u306e\u8fd4\u7b54",
+            "ticket.table_last_reply": "\u6700\u7d42\u56de\u7b54\u65e5\u4ed8",
             "ticket.table_action": "\u30a2\u30af\u30b7\u30e7\u30f3",
             "ticket.status_closed": "\u7d42\u4e86",
             "ticket.status_pending": "\u5bfe\u5fdc\u5f85\u3061",
-            "ticket.status_reply": "\u8fd4\u7b54\u6e08\u307f",
+            "ticket.status_reply": "\u56de\u7b54\u6e08\u307f",
             "ticket.action_view": "\u95b2\u89a7",
             "ticket.action_close": "\u7d42\u4e86",
             "ticket.my_ticket": "\u304a\u554f\u3044\u5408\u308f\u305b\u306e\u4e00\u89a7",
@@ -17880,8 +17927,9 @@
             "order_status.done": "Completed",
             "order_status.surplus": "Converted",
             "commission_status.pending_confirm": "Pending",
-            "commission_status.confirm": "Confirmed",
+            "commission_status.confirm": "Confirming",
             "commission_status.done": "Completed",
+            "commission_status.reject": "Invalid",
             "header.user_center": "User Center",
             "header.logout": "Logout",
             "header.search": "Search",
@@ -17976,6 +18024,8 @@
             "plan.order_total_amount": "Order Total",
             "plan.place_order": "Order",
             "plan.total": "Total",
+            "plan.subscribe_change_title": "Attention subscription changes",
+            "plan.subscribe_change_content": "Attention please, changing subscription will overwrite your current subscription.",
             "profile.user_center": "User Center",
             "profile.my_wallet": "My Wallet",
             "profile.balance_tip": "Account Balance (For billing only)",
@@ -18643,8 +18693,9 @@
             "order_status.done": "\u5df2\u5b8c\u6210",
             "order_status.surplus": "\u5df2\u6298\u62b5",
             "commission_status.pending_confirm": "\u5f85\u786e\u8ba4",
-            "commission_status.confirm": "\u5df2\u786e\u8ba4",
-            "commission_status.done": "\u5df2\u5b8c\u6210",
+            "commission_status.confirm": "\u53d1\u653e\u4e2d",
+            "commission_status.done": "\u5df2\u53d1\u653e",
+            "commission_status.reject": "\u65e0\u6548",
             "header.user_center": "\u4e2a\u4eba\u4e2d\u5fc3",
             "header.logout": "\u767b\u51fa",
             "header.search": "\u641c\u7d22",
@@ -18660,7 +18711,7 @@
             "nav.my_ticket": "\u6211\u7684\u5de5\u5355",
             "nav.traffic_detail": "\u6d41\u91cf\u660e\u7ec6",
             "nav.knowledge": "\u4f7f\u7528\u6587\u6863",
-            "dashboard.not_bind_telegram": "\u8fd8\u6ca1\u6709\u7ed1\u5b9aTelegram",
+            "dashboard.not_bind_telegram": "\u7ed1\u5b9aTelegram\u83b7\u53d6\u66f4\u591a\u670d\u52a1",
             "dashboard.click_here_bind": "\u70b9\u51fb\u8fd9\u91cc\u8fdb\u884c\u7ed1\u5b9a",
             "dashboard.announcement": "\u516c\u544a",
             "dashboard.override": "\u603b\u89c8",
@@ -18702,7 +18753,7 @@
             login: "\u767b\u5165",
             "login.register": "\u6ce8\u518c",
             "login.forget_password": "\u5fd8\u8bb0\u5bc6\u7801",
-            "order.table_no": "# \u8ba2\u5355\u53f7(\u624b\u673a\u5de6\u6ed1\u67e5\u770b\u66f4\u591a\u8be6\u60c5->)",
+            "order.table_no": "# \u8ba2\u5355\u53f7(\u624b\u673a\u5de6\u6ed1\u67e5\u770b\u8ba2\u5355\u8be6\u60c5->)",
             "order.table_cycle": "\u5468\u671f",
             "order.table_amount": "\u8ba2\u5355\u91d1\u989d",
             "order.table_status": "\u8ba2\u5355\u72b6\u6001",
@@ -18739,6 +18790,8 @@
             "plan.order_total_amount": "\u8ba2\u5355\u603b\u989d",
             "plan.place_order": "\u4e0b\u5355",
             "plan.total": "\u603b\u8ba1",
+            "plan.subscribe_change_title": "\u8ba2\u9605\u53d8\u66f4\u987b\u77e5",
+            "plan.subscribe_change_content": "\u53d8\u66f4\u8ba2\u9605\u4f1a\u5bfc\u81f4\u5f53\u524d\u8ba2\u9605\u88ab\u65b0\u8ba2\u9605\u8986\u76d6\uff0c\u8bf7\u6ce8\u610f\u3002",
             "profile.user_center": "\u4e2a\u4eba\u4e2d\u5fc3",
             "profile.my_wallet": "\u6211\u7684\u94b1\u5305",
             "profile.balance_tip": "\u8d26\u6237\u4f59\u989d(\u4ec5\u6d88\u8d39)",
@@ -18771,7 +18824,7 @@
             "register.password": "\u5bc6\u7801",
             "register.re_password": "\u5bc6\u7801",
             "register.send": "\u53d1\u9001",
-            "register.invite_code_require": "\u9080\u8bf7\u7801(\u624b\u673a\u5de6\u6ed1\u590d\u5236\u9080\u8bf7\u7801->)",
+            "register.invite_code_require": "\u9080\u8bf7\u7801",
             "register.invite_code": "\u9080\u8bf7\u7801(\u9009\u586b)",
             register: "\u6ce8\u518c",
             "register.back_login": "\u8fd4\u56de\u767b\u5165",
@@ -18860,7 +18913,7 @@
             "withdraw_modal.withdraw_method": "\u63d0\u73b0\u65b9\u5f0f",
             "withdraw_modal.please_select_method": "\u8bf7\u9009\u62e9\u63d0\u73b0\u65b9\u5f0f",
             "withdraw_modal.withdraw_account": "\u63d0\u73b0\u8d26\u53f7",
-            "withdraw_modal.please_enter_account": "请输入TRC20地址",
+            "withdraw_modal.please_enter_account": "\u8bf7\u8f93\u5165\u63d0\u73b0\u8d26\u53f7",
             "withdraw_modal.alipay": "\u652f\u4ed8\u5b9d",
             "withdraw_modal.paypal": "\u8d1d\u5b9d(Paypal)",
             "withdraw_modal.usdt": "USDT",
@@ -23905,8 +23958,7 @@
                     id: "main-container"
                 }, s.a.createElement("div", {
                     className: "content content-full"
-                }, 
-                s.a.createElement("div", {
+                }, s.a.createElement("div", {
                     class: "alert alert-info"
                 }, s.a.createElement("p", {
                     class: "mb-0 font-w700"
@@ -23914,8 +23966,7 @@
                     class: "alert-pink",
                     target: "_blank",
                     href: "https://flyintx.com"
-                }, "flyintx.com"))), 
-                p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
+                }, "flyintx.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
                 }, s.a.createElement("p", {
@@ -24062,7 +24113,7 @@
                     id: "dashboard.not_expire"
                 })) : s.a.createElement("p", {
                     className: "font-size-sm text-muted"
-                }, n.expired_at < (new Date).getTime() / 1e3 ? s.a.createElement("a", {
+                }, Object(l["d"])(n.expired_at) ? s.a.createElement("a", {
                     className: "font-w600 text-danger",
                     href: "javascript:void(0);"
                 }, Object(v["formatMessage"])({
@@ -24851,7 +24902,8 @@
             show() {
                 this.props.dispatch({
                     type: "knowledge/fetchById",
-                    id: this.props.id
+                    id: this.props.id,
+                    language: Object(s["getLocale"])()
                 }), this.setState({
                     visible: !0
                 })
@@ -24898,7 +24950,8 @@
         class g extends o.a.Component {
             componentDidMount() {
                 this.props.dispatch({
-                    type: "knowledge/fetch"
+                    type: "knowledge/fetch",
+                    language: Object(s["getLocale"])()
                 }), window.copy = b.a
             }
             componentWillUnmount() {
@@ -25317,7 +25370,7 @@
     },
     WEpk: function(e, t) {
         var n = e.exports = {
-            version: "2.6.11"
+            version: "2.6.12"
         };
         "number" == typeof __e && (__e = n)
     },
@@ -25350,13 +25403,15 @@
         n("Pwec");
         var r = n("CtXQ"),
             o = (n("7Kak"), n("9yH6")),
-            a = n("q1tI"),
-            i = n.n(a),
-            s = n("L12J"),
-            c = n("/MKj"),
-            l = n("tI4l"),
-            u = n("Y2fQ");
-        class f extends i.a.Component {
+            a = (n("2qtc"), n("kLXV")),
+            i = n("q1tI"),
+            s = n.n(i),
+            c = n("L12J"),
+            l = n("/MKj"),
+            u = n("tI4l"),
+            f = n("Y2fQ"),
+            p = n("yWgo");
+        class d extends s.a.Component {
             componentDidMount() {
                 this.props.dispatch({
                     type: "plan/fetchById",
@@ -25369,6 +25424,22 @@
                 }), this.props.dispatch({
                     type: "plan/empty"
                 })
+            }
+            preOrder() {
+                var e = this.props.plan.plan,
+                    t = this.props.user,
+                    n = t.userInfo.plan_id,
+                    r = t.subscribe;
+                if (n !== e.id && !Object(p["d"])(r.expired_at)) return a["a"].confirm({
+                    title: Object(f["formatMessage"])({
+                        id: "plan.subscribe_change_title"
+                    }),
+                    content: Object(f["formatMessage"])({
+                        id: "plan.subscribe_change_content"
+                    }),
+                    onOk: () => this.order()
+                });
+                this.order()
             }
             order() {
                 var e = this.props.coupon.coupon,
@@ -25412,21 +25483,21 @@
                     t = this.props.plan,
                     n = t.selectCycle,
                     r = t.plan;
-                if (e.name) return i.a.createElement("div", null, i.a.createElement("div", {
+                if (e.name) return s.a.createElement("div", null, s.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
                     }
-                }, Object(u["formatMessage"])({
+                }, Object(f["formatMessage"])({
                     id: "plan.discount"
-                })), i.a.createElement("div", {
+                })), s.a.createElement("div", {
                     className: "row no-gutters py-3",
                     style: {
                         borderBottom: "1px solid #646669"
                     }
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "col-8"
-                }, e.name), i.a.createElement("div", {
+                }, e.name), s.a.createElement("div", {
                     className: "col-4 text-right"
                 }, "- \xa5", (this.couponProcess(r[n], e.type, e.value) / 100).toFixed(2))))
             }
@@ -25435,42 +25506,42 @@
                     t = e.plan,
                     n = e.selectCycle,
                     a = e.fetchLoading,
-                    c = this.props.user.userInfo,
-                    f = this.props.order.saveLoading;
-                return console.log(c), i.a.createElement(s["a"], this.props, i.a.createElement("main", {
+                    i = this.props.user.userInfo,
+                    l = this.props.order.saveLoading;
+                return console.log(i), s.a.createElement(c["a"], this.props, s.a.createElement("main", {
                     id: "main-container"
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "content content-full"
-                }, i.a.createElement("h2", {
+                }, s.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
-                }, Object(u["formatMessage"])({
+                }, Object(f["formatMessage"])({
                     id: "plan.setting_subscribe"
-                })), a ? i.a.createElement("div", {
+                })), a ? s.a.createElement("div", {
                     className: "spinner-grow text-primary",
                     role: "status"
-                }, i.a.createElement("span", {
+                }, s.a.createElement("span", {
                     className: "sr-only"
-                }, "Loading...")) : i.a.createElement("div", {
+                }, "Loading...")) : s.a.createElement("div", {
                     className: "row",
                     id: "cashier"
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "col-md-8 col-sm-12"
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "block block-link-pop block-rounded block-bordered py-3 block-fx-shadow"
-                }, i.a.createElement("h4", {
+                }, s.a.createElement("h4", {
                     className: "mb-0 px-3"
-                }, t.name), t.content ? i.a.createElement("div", {
+                }, t.name), t.content ? s.a.createElement("div", {
                     dangerouslySetInnerHTML: {
                         __html: t.content
                     },
                     className: "v2board-plan-content"
-                }) : ""), i.a.createElement("h3", {
+                }) : ""), s.a.createElement("h3", {
                     className: "font-w300 mt-4 mb-3"
-                }, Object(u["formatMessage"])({
+                }, Object(f["formatMessage"])({
                     id: "plan.cycle"
-                })), i.a.createElement("div", {
+                })), s.a.createElement("div", {
                     className: "mb-3"
-                }, i.a.createElement(o["a"].Group, {
+                }, s.a.createElement(o["a"].Group, {
                     className: "v2board-select-price",
                     value: n,
                     size: "large",
@@ -25480,27 +25551,27 @@
                             selectCycle: e.target.value
                         }
                     })
-                }, Object.keys(l["a"].cycleText).map(e => {
-                    if (c.plan_id === parseInt(this.props.match.params.plan_id) || "reset_price" !== e) return null !== t[e] ? i.a.createElement(o["a"].Button, {
+                }, Object.keys(u["a"].cycleText).map(e => {
+                    if (i.plan_id === parseInt(this.props.match.params.plan_id) || "reset_price" !== e) return null !== t[e] ? s.a.createElement(o["a"].Button, {
                         value: e
-                    }, l["a"].cycleText[e] && l["a"].cycleText[e](), i.a.createElement("br", null), i.a.createElement("span", {
+                    }, u["a"].cycleText[e] && u["a"].cycleText[e](), s.a.createElement("br", null), s.a.createElement("span", {
                         className: "price"
                     }, "\xa5", (t[e] / 100).toFixed(2))) : void 0
-                })))), i.a.createElement("div", {
+                })))), s.a.createElement("div", {
                     className: "col-md-4 col-sm-12"
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "block block-link-pop block-rounded block-bordered px-3 py-3 mb-2 text-light",
                     style: {
                         background: "#35383D"
                     }
-                }, i.a.createElement("input", {
+                }, s.a.createElement("input", {
                     type: "text",
                     className: "form-control v2board-input-coupon p-0",
                     ref: "coupon",
-                    placeholder: Object(u["formatMessage"])({
+                    placeholder: Object(f["formatMessage"])({
                         id: "plan.have_coupon"
                     })
-                }), i.a.createElement("button", {
+                }), s.a.createElement("button", {
                     onClick: () => this.couponCheck(),
                     type: "button",
                     className: "btn btn-primary",
@@ -25509,52 +25580,52 @@
                         right: 30,
                         top: 17
                     }
-                }, i.a.createElement("i", {
+                }, s.a.createElement("i", {
                     className: "fa fa-fw fa-ticket-alt mr-2"
-                }), Object(u["formatMessage"])({
+                }), Object(f["formatMessage"])({
                     id: "plan.coupon_verify"
-                }))), i.a.createElement("div", {
+                }))), s.a.createElement("div", {
                     className: "block block-link-pop block-rounded block-bordered px-3 py-3 text-light",
                     style: {
                         background: "#35383D"
                     }
-                }, i.a.createElement("h5", {
+                }, s.a.createElement("h5", {
                     className: "text-light mb-3"
-                }, Object(u["formatMessage"])({
+                }, Object(f["formatMessage"])({
                     id: "plan.order_total_amount"
-                })), i.a.createElement("div", {
+                })), s.a.createElement("div", {
                     className: "row no-gutters pb-3",
                     style: {
                         borderBottom: "1px solid #646669"
                     }
-                }, i.a.createElement("div", {
+                }, s.a.createElement("div", {
                     className: "col-8"
-                }, t.name, " x ", l["a"].cycleText[n] && l["a"].cycleText[n]()), i.a.createElement("div", {
+                }, t.name, " x ", u["a"].cycleText[n] && u["a"].cycleText[n]()), s.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "\xa5", (t[n] / 100).toFixed(2))), this.getCouponJSX(), i.a.createElement("div", {
+                }, "\xa5", (t[n] / 100).toFixed(2))), this.getCouponJSX(), s.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
                     }
-                }, Object(u["formatMessage"])({
+                }, Object(f["formatMessage"])({
                     id: "plan.total"
-                })), i.a.createElement("h1", {
+                })), s.a.createElement("h1", {
                     className: "text-light mt-3 mb-3"
-                }, "\xa5 ", this.getTotalAmount(), " CNY"), i.a.createElement("button", {
+                }, "\xa5 ", this.getTotalAmount(), " CNY"), s.a.createElement("button", {
                     type: "button",
                     className: "btn btn-block btn-primary",
-                    disabled: f,
-                    onClick: () => this.order()
-                }, f ? i.a.createElement(r["a"], {
+                    disabled: l,
+                    onClick: () => this.preOrder()
+                }, l ? s.a.createElement(r["a"], {
                     type: "loading"
-                }) : i.a.createElement("span", null, i.a.createElement("i", {
+                }) : s.a.createElement("span", null, s.a.createElement("i", {
                     className: "far fa-check-circle"
-                }), " ", Object(u["formatMessage"])({
+                }), " ", Object(f["formatMessage"])({
                     id: "plan.place_order"
                 })))))))))
             }
         }
-        t["default"] = Object(c["c"])(e => {
+        t["default"] = Object(l["c"])(e => {
             var t = e.plan,
                 n = e.coupon,
                 r = e.order,
@@ -25565,7 +25636,7 @@
                 order: r,
                 user: o
             }
-        })(f)
+        })(d)
     },
     WbBG: function(e, t, n) {
         "use strict";
@@ -27652,12 +27723,7 @@
                     onClick: () => l.a.push("/forgetpassword")
                 }, Object(u["formatMessage"])({
                     id: "login.forget_password"
-                })))),i.a.createElement("div", {
-                    className: "text-center mt-3"
-                },i.a.createElement("h1", {
-                    className: "text-muted font-w700"
-                }, "禁止极端政治、宗教涉恐")
-                )))))))))
+                }))))))))))))
             }
         }
         t["default"] = Object(s["c"])(e => {
@@ -28477,7 +28543,9 @@
         function O(e) {
             var t = new f,
                 n = e.replace(/\r?\n[\t ]+/g, " ");
-            return n.split(/\r?\n/).forEach(function(e) {
+            return n.split("\r").map(function(e) {
+                return 0 === e.indexOf("\n") ? e.substr(1, e.length) : e
+            }).forEach(function(e) {
                 var n = e.split(":"),
                     r = n.shift().trim();
                 if (r) {
@@ -29933,7 +30001,7 @@
             render() {
                 var e = this.props.subscribeUrl,
                     t = [];
-                return Object(c["d"])() && (t.push({
+                return (Object(c["e"])() || Object(c["f"])()) && (t.push({
                     title: "Shadowrocket",
                     href: "shadowrocket://add/sub://" + window.btoa(e).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "") + "?remark=" + window.settings.title
                 }), t.push({
@@ -29944,10 +30012,10 @@
                 }), t.push({
                     title: "Surge",
                     href: "surge:///install-config?url=" + encodeURIComponent(e)
-                })), Object(c["e"])() && t.push({
+                })), Object(c["g"])() && t.push({
                     title: "ClashX",
                     href: "clash://install-config?url=" + encodeURIComponent(e) + "&name=" + window.settings.title
-                }), Object(c["f"])() && t.push({
+                }), Object(c["h"])() && t.push({
                     title: "Clash",
                     href: "clash://install-config?url=" + encodeURIComponent(e)
                 }), Object(c["c"])() && (t.push({
@@ -32882,7 +32950,7 @@
         var r = n("AGgm").isSpace;
 
         function o(e, t) {
-            var n = e.bMarks[t] + e.blkIndent,
+            var n = e.bMarks[t] + e.tShift[t],
                 r = e.eMarks[t];
             return e.src.substr(n, r - n)
         }
@@ -32919,7 +32987,7 @@
             }
             if (c = o(e, t).trim(), -1 === c.indexOf("|")) return !1;
             if (e.sCount[t] - e.blkIndent >= 4) return !1;
-            if (d = a(c), d.length && "" === d[0] && d.shift(), d.length && "" === d[d.length - 1] && d.pop(), h = d.length, h !== y.length) return !1;
+            if (d = a(c), d.length && "" === d[0] && d.shift(), d.length && "" === d[d.length - 1] && d.pop(), h = d.length, 0 === h || h !== y.length) return !1;
             if (i) return !0;
             for (w = e.parentType, e.parentType = "table", x = e.md.block.ruler.getRules("blockquote"), m = e.push("table_open", "table", 1), m.map = b = [t, 0], m = e.push("thead_open", "thead", 1), m.map = [t, t + 1], m = e.push("tr_open", "tr", 1), m.map = [t, t + 1], u = 0; u < d.length; u++) m = e.push("th_open", "th", 1), y[u] && (m.attrs = [
                 ["style", "text-align:" + y[u]]
@@ -34669,8 +34737,7 @@
             o = n.n(r),
             a = n("p0pE"),
             i = n.n(a),
-            s = n("t3Un"),
-            c = n("Y2fQ");
+            s = n("t3Un");
         t["default"] = {
             name: "knowledge",
             state: {
@@ -34688,70 +34755,26 @@
             },
             effects: {
                 fetch(e, t) {
-                    return o.a.mark(function e() {
-                        var n, r;
-                        return o.a.wrap(function(e) {
-                            while (1) switch (e.prev = e.next) {
-                                case 0:
-                                    return n = t.put, e.next = 3, n({
-                                        type: "setState",
-                                        payload: {
-                                            fetchLoading: !0
-                                        }
-                                    });
-                                case 3:
-                                    return e.next = 5, Object(s["a"])("/user/knowledge/fetch", {
-                                        language: Object(c["getLocale"])()
-                                    });
-                                case 5:
-                                    return r = e.sent, e.next = 8, n({
-                                        type: "setState",
-                                        payload: {
-                                            fetchLoading: !1
-                                        }
-                                    });
-                                case 8:
-                                    if (200 === r.code) {
-                                        e.next = 10;
-                                        break
-                                    }
-                                    return e.abrupt("return");
-                                case 10:
-                                    return e.next = 12, n({
-                                        type: "setState",
-                                        payload: {
-                                            knowledges: r.data
-                                        }
-                                    });
-                                case 12:
-                                case "end":
-                                    return e.stop()
-                            }
-                        }, e)
-                    })()
-                },
-                fetchById(e, t) {
                     return o.a.mark(function n() {
                         var r, a, i;
                         return o.a.wrap(function(n) {
                             while (1) switch (n.prev = n.next) {
                                 case 0:
-                                    return r = e.id, a = t.put, n.next = 4, a({
+                                    return r = e.language, a = t.put, n.next = 4, a({
                                         type: "setState",
                                         payload: {
-                                            fetchByIdLoading: !0
+                                            fetchLoading: !0
                                         }
                                     });
                                 case 4:
                                     return n.next = 6, Object(s["a"])("/user/knowledge/fetch", {
-                                        id: r,
-                                        language: Object(c["getLocale"])()
+                                        language: r
                                     });
                                 case 6:
                                     return i = n.sent, n.next = 9, a({
                                         type: "setState",
                                         payload: {
-                                            fetchByIdLoading: !1
+                                            fetchLoading: !1
                                         }
                                     });
                                 case 9:
@@ -34764,7 +34787,51 @@
                                     return n.next = 13, a({
                                         type: "setState",
                                         payload: {
-                                            knowledge: i.data
+                                            knowledges: i.data
+                                        }
+                                    });
+                                case 13:
+                                case "end":
+                                    return n.stop()
+                            }
+                        }, n)
+                    })()
+                },
+                fetchById(e, t) {
+                    return o.a.mark(function n() {
+                        var r, a, i, c;
+                        return o.a.wrap(function(n) {
+                            while (1) switch (n.prev = n.next) {
+                                case 0:
+                                    return r = e.id, a = e.language, i = t.put, n.next = 4, i({
+                                        type: "setState",
+                                        payload: {
+                                            fetchByIdLoading: !0
+                                        }
+                                    });
+                                case 4:
+                                    return n.next = 6, Object(s["a"])("/user/knowledge/fetch", {
+                                        id: r,
+                                        language: a
+                                    });
+                                case 6:
+                                    return c = n.sent, n.next = 9, i({
+                                        type: "setState",
+                                        payload: {
+                                            fetchByIdLoading: !1
+                                        }
+                                    });
+                                case 9:
+                                    if (200 === c.code) {
+                                        n.next = 11;
+                                        break
+                                    }
+                                    return n.abrupt("return");
+                                case 11:
+                                    return n.next = 13, i({
+                                        type: "setState",
+                                        payload: {
+                                            knowledge: c.data
                                         }
                                     });
                                 case 13:
@@ -34861,7 +34928,7 @@
             f = function(e, t) {
                 e && e._registerWrapper && e._registerWrapper({
                     name: "stripe-js",
-                    version: "1.9.0",
+                    version: "1.11.0",
                     startTime: t
                 })
             },
@@ -37788,7 +37855,7 @@
             p = new URL(window.location.href).origin;
         window.settings.host && (p = window.settings.host), document.title = window.settings.title;
         var d = {
-                serviceHost: f ? "http://localhost/api/v1" : p + "/api/v1"
+                serviceHost: f ? "https://v2board.com/api/v1" : p + "/api/v1"
             },
             h = n("Y2fQ");
         n.d(t, "b", function() {
@@ -37997,6 +38064,9 @@
                 }),
                 2: () => Object(r["formatMessage"])({
                     id: "commission_status.done"
+                }),
+                3: () => Object(r["formatMessage"])({
+                    id: "commission_status.reject"
                 })
             }
         }
@@ -39004,7 +39074,7 @@
                     className: "font-size-sm text-muted mb-0"
                 },d.a.createElement("span", {
                     className: "ant-tag"
-                },"流媒体解锁"),":可观看Netflix/Hulu/TVB/... 版权资源"), n ? d.a.createElement("div", {
+                },"流媒体解锁"),":可观看Netflix/Hulu/TVB/... 版权资源"),n ? d.a.createElement("div", {
                     className: "spinner-grow text-primary",
                     role: "status"
                 }, d.a.createElement("span", {
@@ -43440,12 +43510,6 @@
     xWCP: function(e) {
         e.exports = JSON.parse('{"Aacute":"\xc1","aacute":"\xe1","Abreve":"\u0102","abreve":"\u0103","ac":"\u223e","acd":"\u223f","acE":"\u223e\u0333","Acirc":"\xc2","acirc":"\xe2","acute":"\xb4","Acy":"\u0410","acy":"\u0430","AElig":"\xc6","aelig":"\xe6","af":"\u2061","Afr":"\ud835\udd04","afr":"\ud835\udd1e","Agrave":"\xc0","agrave":"\xe0","alefsym":"\u2135","aleph":"\u2135","Alpha":"\u0391","alpha":"\u03b1","Amacr":"\u0100","amacr":"\u0101","amalg":"\u2a3f","amp":"&","AMP":"&","andand":"\u2a55","And":"\u2a53","and":"\u2227","andd":"\u2a5c","andslope":"\u2a58","andv":"\u2a5a","ang":"\u2220","ange":"\u29a4","angle":"\u2220","angmsdaa":"\u29a8","angmsdab":"\u29a9","angmsdac":"\u29aa","angmsdad":"\u29ab","angmsdae":"\u29ac","angmsdaf":"\u29ad","angmsdag":"\u29ae","angmsdah":"\u29af","angmsd":"\u2221","angrt":"\u221f","angrtvb":"\u22be","angrtvbd":"\u299d","angsph":"\u2222","angst":"\xc5","angzarr":"\u237c","Aogon":"\u0104","aogon":"\u0105","Aopf":"\ud835\udd38","aopf":"\ud835\udd52","apacir":"\u2a6f","ap":"\u2248","apE":"\u2a70","ape":"\u224a","apid":"\u224b","apos":"\'","ApplyFunction":"\u2061","approx":"\u2248","approxeq":"\u224a","Aring":"\xc5","aring":"\xe5","Ascr":"\ud835\udc9c","ascr":"\ud835\udcb6","Assign":"\u2254","ast":"*","asymp":"\u2248","asympeq":"\u224d","Atilde":"\xc3","atilde":"\xe3","Auml":"\xc4","auml":"\xe4","awconint":"\u2233","awint":"\u2a11","backcong":"\u224c","backepsilon":"\u03f6","backprime":"\u2035","backsim":"\u223d","backsimeq":"\u22cd","Backslash":"\u2216","Barv":"\u2ae7","barvee":"\u22bd","barwed":"\u2305","Barwed":"\u2306","barwedge":"\u2305","bbrk":"\u23b5","bbrktbrk":"\u23b6","bcong":"\u224c","Bcy":"\u0411","bcy":"\u0431","bdquo":"\u201e","becaus":"\u2235","because":"\u2235","Because":"\u2235","bemptyv":"\u29b0","bepsi":"\u03f6","bernou":"\u212c","Bernoullis":"\u212c","Beta":"\u0392","beta":"\u03b2","beth":"\u2136","between":"\u226c","Bfr":"\ud835\udd05","bfr":"\ud835\udd1f","bigcap":"\u22c2","bigcirc":"\u25ef","bigcup":"\u22c3","bigodot":"\u2a00","bigoplus":"\u2a01","bigotimes":"\u2a02","bigsqcup":"\u2a06","bigstar":"\u2605","bigtriangledown":"\u25bd","bigtriangleup":"\u25b3","biguplus":"\u2a04","bigvee":"\u22c1","bigwedge":"\u22c0","bkarow":"\u290d","blacklozenge":"\u29eb","blacksquare":"\u25aa","blacktriangle":"\u25b4","blacktriangledown":"\u25be","blacktriangleleft":"\u25c2","blacktriangleright":"\u25b8","blank":"\u2423","blk12":"\u2592","blk14":"\u2591","blk34":"\u2593","block":"\u2588","bne":"=\u20e5","bnequiv":"\u2261\u20e5","bNot":"\u2aed","bnot":"\u2310","Bopf":"\ud835\udd39","bopf":"\ud835\udd53","bot":"\u22a5","bottom":"\u22a5","bowtie":"\u22c8","boxbox":"\u29c9","boxdl":"\u2510","boxdL":"\u2555","boxDl":"\u2556","boxDL":"\u2557","boxdr":"\u250c","boxdR":"\u2552","boxDr":"\u2553","boxDR":"\u2554","boxh":"\u2500","boxH":"\u2550","boxhd":"\u252c","boxHd":"\u2564","boxhD":"\u2565","boxHD":"\u2566","boxhu":"\u2534","boxHu":"\u2567","boxhU":"\u2568","boxHU":"\u2569","boxminus":"\u229f","boxplus":"\u229e","boxtimes":"\u22a0","boxul":"\u2518","boxuL":"\u255b","boxUl":"\u255c","boxUL":"\u255d","boxur":"\u2514","boxuR":"\u2558","boxUr":"\u2559","boxUR":"\u255a","boxv":"\u2502","boxV":"\u2551","boxvh":"\u253c","boxvH":"\u256a","boxVh":"\u256b","boxVH":"\u256c","boxvl":"\u2524","boxvL":"\u2561","boxVl":"\u2562","boxVL":"\u2563","boxvr":"\u251c","boxvR":"\u255e","boxVr":"\u255f","boxVR":"\u2560","bprime":"\u2035","breve":"\u02d8","Breve":"\u02d8","brvbar":"\xa6","bscr":"\ud835\udcb7","Bscr":"\u212c","bsemi":"\u204f","bsim":"\u223d","bsime":"\u22cd","bsolb":"\u29c5","bsol":"\\\\","bsolhsub":"\u27c8","bull":"\u2022","bullet":"\u2022","bump":"\u224e","bumpE":"\u2aae","bumpe":"\u224f","Bumpeq":"\u224e","bumpeq":"\u224f","Cacute":"\u0106","cacute":"\u0107","capand":"\u2a44","capbrcup":"\u2a49","capcap":"\u2a4b","cap":"\u2229","Cap":"\u22d2","capcup":"\u2a47","capdot":"\u2a40","CapitalDifferentialD":"\u2145","caps":"\u2229\ufe00","caret":"\u2041","caron":"\u02c7","Cayleys":"\u212d","ccaps":"\u2a4d","Ccaron":"\u010c","ccaron":"\u010d","Ccedil":"\xc7","ccedil":"\xe7","Ccirc":"\u0108","ccirc":"\u0109","Cconint":"\u2230","ccups":"\u2a4c","ccupssm":"\u2a50","Cdot":"\u010a","cdot":"\u010b","cedil":"\xb8","Cedilla":"\xb8","cemptyv":"\u29b2","cent":"\xa2","centerdot":"\xb7","CenterDot":"\xb7","cfr":"\ud835\udd20","Cfr":"\u212d","CHcy":"\u0427","chcy":"\u0447","check":"\u2713","checkmark":"\u2713","Chi":"\u03a7","chi":"\u03c7","circ":"\u02c6","circeq":"\u2257","circlearrowleft":"\u21ba","circlearrowright":"\u21bb","circledast":"\u229b","circledcirc":"\u229a","circleddash":"\u229d","CircleDot":"\u2299","circledR":"\xae","circledS":"\u24c8","CircleMinus":"\u2296","CirclePlus":"\u2295","CircleTimes":"\u2297","cir":"\u25cb","cirE":"\u29c3","cire":"\u2257","cirfnint":"\u2a10","cirmid":"\u2aef","cirscir":"\u29c2","ClockwiseContourIntegral":"\u2232","CloseCurlyDoubleQuote":"\u201d","CloseCurlyQuote":"\u2019","clubs":"\u2663","clubsuit":"\u2663","colon":":","Colon":"\u2237","Colone":"\u2a74","colone":"\u2254","coloneq":"\u2254","comma":",","commat":"@","comp":"\u2201","compfn":"\u2218","complement":"\u2201","complexes":"\u2102","cong":"\u2245","congdot":"\u2a6d","Congruent":"\u2261","conint":"\u222e","Conint":"\u222f","ContourIntegral":"\u222e","copf":"\ud835\udd54","Copf":"\u2102","coprod":"\u2210","Coproduct":"\u2210","copy":"\xa9","COPY":"\xa9","copysr":"\u2117","CounterClockwiseContourIntegral":"\u2233","crarr":"\u21b5","cross":"\u2717","Cross":"\u2a2f","Cscr":"\ud835\udc9e","cscr":"\ud835\udcb8","csub":"\u2acf","csube":"\u2ad1","csup":"\u2ad0","csupe":"\u2ad2","ctdot":"\u22ef","cudarrl":"\u2938","cudarrr":"\u2935","cuepr":"\u22de","cuesc":"\u22df","cularr":"\u21b6","cularrp":"\u293d","cupbrcap":"\u2a48","cupcap":"\u2a46","CupCap":"\u224d","cup":"\u222a","Cup":"\u22d3","cupcup":"\u2a4a","cupdot":"\u228d","cupor":"\u2a45","cups":"\u222a\ufe00","curarr":"\u21b7","curarrm":"\u293c","curlyeqprec":"\u22de","curlyeqsucc":"\u22df","curlyvee":"\u22ce","curlywedge":"\u22cf","curren":"\xa4","curvearrowleft":"\u21b6","curvearrowright":"\u21b7","cuvee":"\u22ce","cuwed":"\u22cf","cwconint":"\u2232","cwint":"\u2231","cylcty":"\u232d","dagger":"\u2020","Dagger":"\u2021","daleth":"\u2138","darr":"\u2193","Darr":"\u21a1","dArr":"\u21d3","dash":"\u2010","Dashv":"\u2ae4","dashv":"\u22a3","dbkarow":"\u290f","dblac":"\u02dd","Dcaron":"\u010e","dcaron":"\u010f","Dcy":"\u0414","dcy":"\u0434","ddagger":"\u2021","ddarr":"\u21ca","DD":"\u2145","dd":"\u2146","DDotrahd":"\u2911","ddotseq":"\u2a77","deg":"\xb0","Del":"\u2207","Delta":"\u0394","delta":"\u03b4","demptyv":"\u29b1","dfisht":"\u297f","Dfr":"\ud835\udd07","dfr":"\ud835\udd21","dHar":"\u2965","dharl":"\u21c3","dharr":"\u21c2","DiacriticalAcute":"\xb4","DiacriticalDot":"\u02d9","DiacriticalDoubleAcute":"\u02dd","DiacriticalGrave":"`","DiacriticalTilde":"\u02dc","diam":"\u22c4","diamond":"\u22c4","Diamond":"\u22c4","diamondsuit":"\u2666","diams":"\u2666","die":"\xa8","DifferentialD":"\u2146","digamma":"\u03dd","disin":"\u22f2","div":"\xf7","divide":"\xf7","divideontimes":"\u22c7","divonx":"\u22c7","DJcy":"\u0402","djcy":"\u0452","dlcorn":"\u231e","dlcrop":"\u230d","dollar":"$","Dopf":"\ud835\udd3b","dopf":"\ud835\udd55","Dot":"\xa8","dot":"\u02d9","DotDot":"\u20dc","doteq":"\u2250","doteqdot":"\u2251","DotEqual":"\u2250","dotminus":"\u2238","dotplus":"\u2214","dotsquare":"\u22a1","doublebarwedge":"\u2306","DoubleContourIntegral":"\u222f","DoubleDot":"\xa8","DoubleDownArrow":"\u21d3","DoubleLeftArrow":"\u21d0","DoubleLeftRightArrow":"\u21d4","DoubleLeftTee":"\u2ae4","DoubleLongLeftArrow":"\u27f8","DoubleLongLeftRightArrow":"\u27fa","DoubleLongRightArrow":"\u27f9","DoubleRightArrow":"\u21d2","DoubleRightTee":"\u22a8","DoubleUpArrow":"\u21d1","DoubleUpDownArrow":"\u21d5","DoubleVerticalBar":"\u2225","DownArrowBar":"\u2913","downarrow":"\u2193","DownArrow":"\u2193","Downarrow":"\u21d3","DownArrowUpArrow":"\u21f5","DownBreve":"\u0311","downdownarrows":"\u21ca","downharpoonleft":"\u21c3","downharpoonright":"\u21c2","DownLeftRightVector":"\u2950","DownLeftTeeVector":"\u295e","DownLeftVectorBar":"\u2956","DownLeftVector":"\u21bd","DownRightTeeVector":"\u295f","DownRightVectorBar":"\u2957","DownRightVector":"\u21c1","DownTeeArrow":"\u21a7","DownTee":"\u22a4","drbkarow":"\u2910","drcorn":"\u231f","drcrop":"\u230c","Dscr":"\ud835\udc9f","dscr":"\ud835\udcb9","DScy":"\u0405","dscy":"\u0455","dsol":"\u29f6","Dstrok":"\u0110","dstrok":"\u0111","dtdot":"\u22f1","dtri":"\u25bf","dtrif":"\u25be","duarr":"\u21f5","duhar":"\u296f","dwangle":"\u29a6","DZcy":"\u040f","dzcy":"\u045f","dzigrarr":"\u27ff","Eacute":"\xc9","eacute":"\xe9","easter":"\u2a6e","Ecaron":"\u011a","ecaron":"\u011b","Ecirc":"\xca","ecirc":"\xea","ecir":"\u2256","ecolon":"\u2255","Ecy":"\u042d","ecy":"\u044d","eDDot":"\u2a77","Edot":"\u0116","edot":"\u0117","eDot":"\u2251","ee":"\u2147","efDot":"\u2252","Efr":"\ud835\udd08","efr":"\ud835\udd22","eg":"\u2a9a","Egrave":"\xc8","egrave":"\xe8","egs":"\u2a96","egsdot":"\u2a98","el":"\u2a99","Element":"\u2208","elinters":"\u23e7","ell":"\u2113","els":"\u2a95","elsdot":"\u2a97","Emacr":"\u0112","emacr":"\u0113","empty":"\u2205","emptyset":"\u2205","EmptySmallSquare":"\u25fb","emptyv":"\u2205","EmptyVerySmallSquare":"\u25ab","emsp13":"\u2004","emsp14":"\u2005","emsp":"\u2003","ENG":"\u014a","eng":"\u014b","ensp":"\u2002","Eogon":"\u0118","eogon":"\u0119","Eopf":"\ud835\udd3c","eopf":"\ud835\udd56","epar":"\u22d5","eparsl":"\u29e3","eplus":"\u2a71","epsi":"\u03b5","Epsilon":"\u0395","epsilon":"\u03b5","epsiv":"\u03f5","eqcirc":"\u2256","eqcolon":"\u2255","eqsim":"\u2242","eqslantgtr":"\u2a96","eqslantless":"\u2a95","Equal":"\u2a75","equals":"=","EqualTilde":"\u2242","equest":"\u225f","Equilibrium":"\u21cc","equiv":"\u2261","equivDD":"\u2a78","eqvparsl":"\u29e5","erarr":"\u2971","erDot":"\u2253","escr":"\u212f","Escr":"\u2130","esdot":"\u2250","Esim":"\u2a73","esim":"\u2242","Eta":"\u0397","eta":"\u03b7","ETH":"\xd0","eth":"\xf0","Euml":"\xcb","euml":"\xeb","euro":"\u20ac","excl":"!","exist":"\u2203","Exists":"\u2203","expectation":"\u2130","exponentiale":"\u2147","ExponentialE":"\u2147","fallingdotseq":"\u2252","Fcy":"\u0424","fcy":"\u0444","female":"\u2640","ffilig":"\ufb03","fflig":"\ufb00","ffllig":"\ufb04","Ffr":"\ud835\udd09","ffr":"\ud835\udd23","filig":"\ufb01","FilledSmallSquare":"\u25fc","FilledVerySmallSquare":"\u25aa","fjlig":"fj","flat":"\u266d","fllig":"\ufb02","fltns":"\u25b1","fnof":"\u0192","Fopf":"\ud835\udd3d","fopf":"\ud835\udd57","forall":"\u2200","ForAll":"\u2200","fork":"\u22d4","forkv":"\u2ad9","Fouriertrf":"\u2131","fpartint":"\u2a0d","frac12":"\xbd","frac13":"\u2153","frac14":"\xbc","frac15":"\u2155","frac16":"\u2159","frac18":"\u215b","frac23":"\u2154","frac25":"\u2156","frac34":"\xbe","frac35":"\u2157","frac38":"\u215c","frac45":"\u2158","frac56":"\u215a","frac58":"\u215d","frac78":"\u215e","frasl":"\u2044","frown":"\u2322","fscr":"\ud835\udcbb","Fscr":"\u2131","gacute":"\u01f5","Gamma":"\u0393","gamma":"\u03b3","Gammad":"\u03dc","gammad":"\u03dd","gap":"\u2a86","Gbreve":"\u011e","gbreve":"\u011f","Gcedil":"\u0122","Gcirc":"\u011c","gcirc":"\u011d","Gcy":"\u0413","gcy":"\u0433","Gdot":"\u0120","gdot":"\u0121","ge":"\u2265","gE":"\u2267","gEl":"\u2a8c","gel":"\u22db","geq":"\u2265","geqq":"\u2267","geqslant":"\u2a7e","gescc":"\u2aa9","ges":"\u2a7e","gesdot":"\u2a80","gesdoto":"\u2a82","gesdotol":"\u2a84","gesl":"\u22db\ufe00","gesles":"\u2a94","Gfr":"\ud835\udd0a","gfr":"\ud835\udd24","gg":"\u226b","Gg":"\u22d9","ggg":"\u22d9","gimel":"\u2137","GJcy":"\u0403","gjcy":"\u0453","gla":"\u2aa5","gl":"\u2277","glE":"\u2a92","glj":"\u2aa4","gnap":"\u2a8a","gnapprox":"\u2a8a","gne":"\u2a88","gnE":"\u2269","gneq":"\u2a88","gneqq":"\u2269","gnsim":"\u22e7","Gopf":"\ud835\udd3e","gopf":"\ud835\udd58","grave":"`","GreaterEqual":"\u2265","GreaterEqualLess":"\u22db","GreaterFullEqual":"\u2267","GreaterGreater":"\u2aa2","GreaterLess":"\u2277","GreaterSlantEqual":"\u2a7e","GreaterTilde":"\u2273","Gscr":"\ud835\udca2","gscr":"\u210a","gsim":"\u2273","gsime":"\u2a8e","gsiml":"\u2a90","gtcc":"\u2aa7","gtcir":"\u2a7a","gt":">","GT":">","Gt":"\u226b","gtdot":"\u22d7","gtlPar":"\u2995","gtquest":"\u2a7c","gtrapprox":"\u2a86","gtrarr":"\u2978","gtrdot":"\u22d7","gtreqless":"\u22db","gtreqqless":"\u2a8c","gtrless":"\u2277","gtrsim":"\u2273","gvertneqq":"\u2269\ufe00","gvnE":"\u2269\ufe00","Hacek":"\u02c7","hairsp":"\u200a","half":"\xbd","hamilt":"\u210b","HARDcy":"\u042a","hardcy":"\u044a","harrcir":"\u2948","harr":"\u2194","hArr":"\u21d4","harrw":"\u21ad","Hat":"^","hbar":"\u210f","Hcirc":"\u0124","hcirc":"\u0125","hearts":"\u2665","heartsuit":"\u2665","hellip":"\u2026","hercon":"\u22b9","hfr":"\ud835\udd25","Hfr":"\u210c","HilbertSpace":"\u210b","hksearow":"\u2925","hkswarow":"\u2926","hoarr":"\u21ff","homtht":"\u223b","hookleftarrow":"\u21a9","hookrightarrow":"\u21aa","hopf":"\ud835\udd59","Hopf":"\u210d","horbar":"\u2015","HorizontalLine":"\u2500","hscr":"\ud835\udcbd","Hscr":"\u210b","hslash":"\u210f","Hstrok":"\u0126","hstrok":"\u0127","HumpDownHump":"\u224e","HumpEqual":"\u224f","hybull":"\u2043","hyphen":"\u2010","Iacute":"\xcd","iacute":"\xed","ic":"\u2063","Icirc":"\xce","icirc":"\xee","Icy":"\u0418","icy":"\u0438","Idot":"\u0130","IEcy":"\u0415","iecy":"\u0435","iexcl":"\xa1","iff":"\u21d4","ifr":"\ud835\udd26","Ifr":"\u2111","Igrave":"\xcc","igrave":"\xec","ii":"\u2148","iiiint":"\u2a0c","iiint":"\u222d","iinfin":"\u29dc","iiota":"\u2129","IJlig":"\u0132","ijlig":"\u0133","Imacr":"\u012a","imacr":"\u012b","image":"\u2111","ImaginaryI":"\u2148","imagline":"\u2110","imagpart":"\u2111","imath":"\u0131","Im":"\u2111","imof":"\u22b7","imped":"\u01b5","Implies":"\u21d2","incare":"\u2105","in":"\u2208","infin":"\u221e","infintie":"\u29dd","inodot":"\u0131","intcal":"\u22ba","int":"\u222b","Int":"\u222c","integers":"\u2124","Integral":"\u222b","intercal":"\u22ba","Intersection":"\u22c2","intlarhk":"\u2a17","intprod":"\u2a3c","InvisibleComma":"\u2063","InvisibleTimes":"\u2062","IOcy":"\u0401","iocy":"\u0451","Iogon":"\u012e","iogon":"\u012f","Iopf":"\ud835\udd40","iopf":"\ud835\udd5a","Iota":"\u0399","iota":"\u03b9","iprod":"\u2a3c","iquest":"\xbf","iscr":"\ud835\udcbe","Iscr":"\u2110","isin":"\u2208","isindot":"\u22f5","isinE":"\u22f9","isins":"\u22f4","isinsv":"\u22f3","isinv":"\u2208","it":"\u2062","Itilde":"\u0128","itilde":"\u0129","Iukcy":"\u0406","iukcy":"\u0456","Iuml":"\xcf","iuml":"\xef","Jcirc":"\u0134","jcirc":"\u0135","Jcy":"\u0419","jcy":"\u0439","Jfr":"\ud835\udd0d","jfr":"\ud835\udd27","jmath":"\u0237","Jopf":"\ud835\udd41","jopf":"\ud835\udd5b","Jscr":"\ud835\udca5","jscr":"\ud835\udcbf","Jsercy":"\u0408","jsercy":"\u0458","Jukcy":"\u0404","jukcy":"\u0454","Kappa":"\u039a","kappa":"\u03ba","kappav":"\u03f0","Kcedil":"\u0136","kcedil":"\u0137","Kcy":"\u041a","kcy":"\u043a","Kfr":"\ud835\udd0e","kfr":"\ud835\udd28","kgreen":"\u0138","KHcy":"\u0425","khcy":"\u0445","KJcy":"\u040c","kjcy":"\u045c","Kopf":"\ud835\udd42","kopf":"\ud835\udd5c","Kscr":"\ud835\udca6","kscr":"\ud835\udcc0","lAarr":"\u21da","Lacute":"\u0139","lacute":"\u013a","laemptyv":"\u29b4","lagran":"\u2112","Lambda":"\u039b","lambda":"\u03bb","lang":"\u27e8","Lang":"\u27ea","langd":"\u2991","langle":"\u27e8","lap":"\u2a85","Laplacetrf":"\u2112","laquo":"\xab","larrb":"\u21e4","larrbfs":"\u291f","larr":"\u2190","Larr":"\u219e","lArr":"\u21d0","larrfs":"\u291d","larrhk":"\u21a9","larrlp":"\u21ab","larrpl":"\u2939","larrsim":"\u2973","larrtl":"\u21a2","latail":"\u2919","lAtail":"\u291b","lat":"\u2aab","late":"\u2aad","lates":"\u2aad\ufe00","lbarr":"\u290c","lBarr":"\u290e","lbbrk":"\u2772","lbrace":"{","lbrack":"[","lbrke":"\u298b","lbrksld":"\u298f","lbrkslu":"\u298d","Lcaron":"\u013d","lcaron":"\u013e","Lcedil":"\u013b","lcedil":"\u013c","lceil":"\u2308","lcub":"{","Lcy":"\u041b","lcy":"\u043b","ldca":"\u2936","ldquo":"\u201c","ldquor":"\u201e","ldrdhar":"\u2967","ldrushar":"\u294b","ldsh":"\u21b2","le":"\u2264","lE":"\u2266","LeftAngleBracket":"\u27e8","LeftArrowBar":"\u21e4","leftarrow":"\u2190","LeftArrow":"\u2190","Leftarrow":"\u21d0","LeftArrowRightArrow":"\u21c6","leftarrowtail":"\u21a2","LeftCeiling":"\u2308","LeftDoubleBracket":"\u27e6","LeftDownTeeVector":"\u2961","LeftDownVectorBar":"\u2959","LeftDownVector":"\u21c3","LeftFloor":"\u230a","leftharpoondown":"\u21bd","leftharpoonup":"\u21bc","leftleftarrows":"\u21c7","leftrightarrow":"\u2194","LeftRightArrow":"\u2194","Leftrightarrow":"\u21d4","leftrightarrows":"\u21c6","leftrightharpoons":"\u21cb","leftrightsquigarrow":"\u21ad","LeftRightVector":"\u294e","LeftTeeArrow":"\u21a4","LeftTee":"\u22a3","LeftTeeVector":"\u295a","leftthreetimes":"\u22cb","LeftTriangleBar":"\u29cf","LeftTriangle":"\u22b2","LeftTriangleEqual":"\u22b4","LeftUpDownVector":"\u2951","LeftUpTeeVector":"\u2960","LeftUpVectorBar":"\u2958","LeftUpVector":"\u21bf","LeftVectorBar":"\u2952","LeftVector":"\u21bc","lEg":"\u2a8b","leg":"\u22da","leq":"\u2264","leqq":"\u2266","leqslant":"\u2a7d","lescc":"\u2aa8","les":"\u2a7d","lesdot":"\u2a7f","lesdoto":"\u2a81","lesdotor":"\u2a83","lesg":"\u22da\ufe00","lesges":"\u2a93","lessapprox":"\u2a85","lessdot":"\u22d6","lesseqgtr":"\u22da","lesseqqgtr":"\u2a8b","LessEqualGreater":"\u22da","LessFullEqual":"\u2266","LessGreater":"\u2276","lessgtr":"\u2276","LessLess":"\u2aa1","lesssim":"\u2272","LessSlantEqual":"\u2a7d","LessTilde":"\u2272","lfisht":"\u297c","lfloor":"\u230a","Lfr":"\ud835\udd0f","lfr":"\ud835\udd29","lg":"\u2276","lgE":"\u2a91","lHar":"\u2962","lhard":"\u21bd","lharu":"\u21bc","lharul":"\u296a","lhblk":"\u2584","LJcy":"\u0409","ljcy":"\u0459","llarr":"\u21c7","ll":"\u226a","Ll":"\u22d8","llcorner":"\u231e","Lleftarrow":"\u21da","llhard":"\u296b","lltri":"\u25fa","Lmidot":"\u013f","lmidot":"\u0140","lmoustache":"\u23b0","lmoust":"\u23b0","lnap":"\u2a89","lnapprox":"\u2a89","lne":"\u2a87","lnE":"\u2268","lneq":"\u2a87","lneqq":"\u2268","lnsim":"\u22e6","loang":"\u27ec","loarr":"\u21fd","lobrk":"\u27e6","longleftarrow":"\u27f5","LongLeftArrow":"\u27f5","Longleftarrow":"\u27f8","longleftrightarrow":"\u27f7","LongLeftRightArrow":"\u27f7","Longleftrightarrow":"\u27fa","longmapsto":"\u27fc","longrightarrow":"\u27f6","LongRightArrow":"\u27f6","Longrightarrow":"\u27f9","looparrowleft":"\u21ab","looparrowright":"\u21ac","lopar":"\u2985","Lopf":"\ud835\udd43","lopf":"\ud835\udd5d","loplus":"\u2a2d","lotimes":"\u2a34","lowast":"\u2217","lowbar":"_","LowerLeftArrow":"\u2199","LowerRightArrow":"\u2198","loz":"\u25ca","lozenge":"\u25ca","lozf":"\u29eb","lpar":"(","lparlt":"\u2993","lrarr":"\u21c6","lrcorner":"\u231f","lrhar":"\u21cb","lrhard":"\u296d","lrm":"\u200e","lrtri":"\u22bf","lsaquo":"\u2039","lscr":"\ud835\udcc1","Lscr":"\u2112","lsh":"\u21b0","Lsh":"\u21b0","lsim":"\u2272","lsime":"\u2a8d","lsimg":"\u2a8f","lsqb":"[","lsquo":"\u2018","lsquor":"\u201a","Lstrok":"\u0141","lstrok":"\u0142","ltcc":"\u2aa6","ltcir":"\u2a79","lt":"<","LT":"<","Lt":"\u226a","ltdot":"\u22d6","lthree":"\u22cb","ltimes":"\u22c9","ltlarr":"\u2976","ltquest":"\u2a7b","ltri":"\u25c3","ltrie":"\u22b4","ltrif":"\u25c2","ltrPar":"\u2996","lurdshar":"\u294a","luruhar":"\u2966","lvertneqq":"\u2268\ufe00","lvnE":"\u2268\ufe00","macr":"\xaf","male":"\u2642","malt":"\u2720","maltese":"\u2720","Map":"\u2905","map":"\u21a6","mapsto":"\u21a6","mapstodown":"\u21a7","mapstoleft":"\u21a4","mapstoup":"\u21a5","marker":"\u25ae","mcomma":"\u2a29","Mcy":"\u041c","mcy":"\u043c","mdash":"\u2014","mDDot":"\u223a","measuredangle":"\u2221","MediumSpace":"\u205f","Mellintrf":"\u2133","Mfr":"\ud835\udd10","mfr":"\ud835\udd2a","mho":"\u2127","micro":"\xb5","midast":"*","midcir":"\u2af0","mid":"\u2223","middot":"\xb7","minusb":"\u229f","minus":"\u2212","minusd":"\u2238","minusdu":"\u2a2a","MinusPlus":"\u2213","mlcp":"\u2adb","mldr":"\u2026","mnplus":"\u2213","models":"\u22a7","Mopf":"\ud835\udd44","mopf":"\ud835\udd5e","mp":"\u2213","mscr":"\ud835\udcc2","Mscr":"\u2133","mstpos":"\u223e","Mu":"\u039c","mu":"\u03bc","multimap":"\u22b8","mumap":"\u22b8","nabla":"\u2207","Nacute":"\u0143","nacute":"\u0144","nang":"\u2220\u20d2","nap":"\u2249","napE":"\u2a70\u0338","napid":"\u224b\u0338","napos":"\u0149","napprox":"\u2249","natural":"\u266e","naturals":"\u2115","natur":"\u266e","nbsp":"\xa0","nbump":"\u224e\u0338","nbumpe":"\u224f\u0338","ncap":"\u2a43","Ncaron":"\u0147","ncaron":"\u0148","Ncedil":"\u0145","ncedil":"\u0146","ncong":"\u2247","ncongdot":"\u2a6d\u0338","ncup":"\u2a42","Ncy":"\u041d","ncy":"\u043d","ndash":"\u2013","nearhk":"\u2924","nearr":"\u2197","neArr":"\u21d7","nearrow":"\u2197","ne":"\u2260","nedot":"\u2250\u0338","NegativeMediumSpace":"\u200b","NegativeThickSpace":"\u200b","NegativeThinSpace":"\u200b","NegativeVeryThinSpace":"\u200b","nequiv":"\u2262","nesear":"\u2928","nesim":"\u2242\u0338","NestedGreaterGreater":"\u226b","NestedLessLess":"\u226a","NewLine":"\\n","nexist":"\u2204","nexists":"\u2204","Nfr":"\ud835\udd11","nfr":"\ud835\udd2b","ngE":"\u2267\u0338","nge":"\u2271","ngeq":"\u2271","ngeqq":"\u2267\u0338","ngeqslant":"\u2a7e\u0338","nges":"\u2a7e\u0338","nGg":"\u22d9\u0338","ngsim":"\u2275","nGt":"\u226b\u20d2","ngt":"\u226f","ngtr":"\u226f","nGtv":"\u226b\u0338","nharr":"\u21ae","nhArr":"\u21ce","nhpar":"\u2af2","ni":"\u220b","nis":"\u22fc","nisd":"\u22fa","niv":"\u220b","NJcy":"\u040a","njcy":"\u045a","nlarr":"\u219a","nlArr":"\u21cd","nldr":"\u2025","nlE":"\u2266\u0338","nle":"\u2270","nleftarrow":"\u219a","nLeftarrow":"\u21cd","nleftrightarrow":"\u21ae","nLeftrightarrow":"\u21ce","nleq":"\u2270","nleqq":"\u2266\u0338","nleqslant":"\u2a7d\u0338","nles":"\u2a7d\u0338","nless":"\u226e","nLl":"\u22d8\u0338","nlsim":"\u2274","nLt":"\u226a\u20d2","nlt":"\u226e","nltri":"\u22ea","nltrie":"\u22ec","nLtv":"\u226a\u0338","nmid":"\u2224","NoBreak":"\u2060","NonBreakingSpace":"\xa0","nopf":"\ud835\udd5f","Nopf":"\u2115","Not":"\u2aec","not":"\xac","NotCongruent":"\u2262","NotCupCap":"\u226d","NotDoubleVerticalBar":"\u2226","NotElement":"\u2209","NotEqual":"\u2260","NotEqualTilde":"\u2242\u0338","NotExists":"\u2204","NotGreater":"\u226f","NotGreaterEqual":"\u2271","NotGreaterFullEqual":"\u2267\u0338","NotGreaterGreater":"\u226b\u0338","NotGreaterLess":"\u2279","NotGreaterSlantEqual":"\u2a7e\u0338","NotGreaterTilde":"\u2275","NotHumpDownHump":"\u224e\u0338","NotHumpEqual":"\u224f\u0338","notin":"\u2209","notindot":"\u22f5\u0338","notinE":"\u22f9\u0338","notinva":"\u2209","notinvb":"\u22f7","notinvc":"\u22f6","NotLeftTriangleBar":"\u29cf\u0338","NotLeftTriangle":"\u22ea","NotLeftTriangleEqual":"\u22ec","NotLess":"\u226e","NotLessEqual":"\u2270","NotLessGreater":"\u2278","NotLessLess":"\u226a\u0338","NotLessSlantEqual":"\u2a7d\u0338","NotLessTilde":"\u2274","NotNestedGreaterGreater":"\u2aa2\u0338","NotNestedLessLess":"\u2aa1\u0338","notni":"\u220c","notniva":"\u220c","notnivb":"\u22fe","notnivc":"\u22fd","NotPrecedes":"\u2280","NotPrecedesEqual":"\u2aaf\u0338","NotPrecedesSlantEqual":"\u22e0","NotReverseElement":"\u220c","NotRightTriangleBar":"\u29d0\u0338","NotRightTriangle":"\u22eb","NotRightTriangleEqual":"\u22ed","NotSquareSubset":"\u228f\u0338","NotSquareSubsetEqual":"\u22e2","NotSquareSuperset":"\u2290\u0338","NotSquareSupersetEqual":"\u22e3","NotSubset":"\u2282\u20d2","NotSubsetEqual":"\u2288","NotSucceeds":"\u2281","NotSucceedsEqual":"\u2ab0\u0338","NotSucceedsSlantEqual":"\u22e1","NotSucceedsTilde":"\u227f\u0338","NotSuperset":"\u2283\u20d2","NotSupersetEqual":"\u2289","NotTilde":"\u2241","NotTildeEqual":"\u2244","NotTildeFullEqual":"\u2247","NotTildeTilde":"\u2249","NotVerticalBar":"\u2224","nparallel":"\u2226","npar":"\u2226","nparsl":"\u2afd\u20e5","npart":"\u2202\u0338","npolint":"\u2a14","npr":"\u2280","nprcue":"\u22e0","nprec":"\u2280","npreceq":"\u2aaf\u0338","npre":"\u2aaf\u0338","nrarrc":"\u2933\u0338","nrarr":"\u219b","nrArr":"\u21cf","nrarrw":"\u219d\u0338","nrightarrow":"\u219b","nRightarrow":"\u21cf","nrtri":"\u22eb","nrtrie":"\u22ed","nsc":"\u2281","nsccue":"\u22e1","nsce":"\u2ab0\u0338","Nscr":"\ud835\udca9","nscr":"\ud835\udcc3","nshortmid":"\u2224","nshortparallel":"\u2226","nsim":"\u2241","nsime":"\u2244","nsimeq":"\u2244","nsmid":"\u2224","nspar":"\u2226","nsqsube":"\u22e2","nsqsupe":"\u22e3","nsub":"\u2284","nsubE":"\u2ac5\u0338","nsube":"\u2288","nsubset":"\u2282\u20d2","nsubseteq":"\u2288","nsubseteqq":"\u2ac5\u0338","nsucc":"\u2281","nsucceq":"\u2ab0\u0338","nsup":"\u2285","nsupE":"\u2ac6\u0338","nsupe":"\u2289","nsupset":"\u2283\u20d2","nsupseteq":"\u2289","nsupseteqq":"\u2ac6\u0338","ntgl":"\u2279","Ntilde":"\xd1","ntilde":"\xf1","ntlg":"\u2278","ntriangleleft":"\u22ea","ntrianglelefteq":"\u22ec","ntriangleright":"\u22eb","ntrianglerighteq":"\u22ed","Nu":"\u039d","nu":"\u03bd","num":"#","numero":"\u2116","numsp":"\u2007","nvap":"\u224d\u20d2","nvdash":"\u22ac","nvDash":"\u22ad","nVdash":"\u22ae","nVDash":"\u22af","nvge":"\u2265\u20d2","nvgt":">\u20d2","nvHarr":"\u2904","nvinfin":"\u29de","nvlArr":"\u2902","nvle":"\u2264\u20d2","nvlt":"<\u20d2","nvltrie":"\u22b4\u20d2","nvrArr":"\u2903","nvrtrie":"\u22b5\u20d2","nvsim":"\u223c\u20d2","nwarhk":"\u2923","nwarr":"\u2196","nwArr":"\u21d6","nwarrow":"\u2196","nwnear":"\u2927","Oacute":"\xd3","oacute":"\xf3","oast":"\u229b","Ocirc":"\xd4","ocirc":"\xf4","ocir":"\u229a","Ocy":"\u041e","ocy":"\u043e","odash":"\u229d","Odblac":"\u0150","odblac":"\u0151","odiv":"\u2a38","odot":"\u2299","odsold":"\u29bc","OElig":"\u0152","oelig":"\u0153","ofcir":"\u29bf","Ofr":"\ud835\udd12","ofr":"\ud835\udd2c","ogon":"\u02db","Ograve":"\xd2","ograve":"\xf2","ogt":"\u29c1","ohbar":"\u29b5","ohm":"\u03a9","oint":"\u222e","olarr":"\u21ba","olcir":"\u29be","olcross":"\u29bb","oline":"\u203e","olt":"\u29c0","Omacr":"\u014c","omacr":"\u014d","Omega":"\u03a9","omega":"\u03c9","Omicron":"\u039f","omicron":"\u03bf","omid":"\u29b6","ominus":"\u2296","Oopf":"\ud835\udd46","oopf":"\ud835\udd60","opar":"\u29b7","OpenCurlyDoubleQuote":"\u201c","OpenCurlyQuote":"\u2018","operp":"\u29b9","oplus":"\u2295","orarr":"\u21bb","Or":"\u2a54","or":"\u2228","ord":"\u2a5d","order":"\u2134","orderof":"\u2134","ordf":"\xaa","ordm":"\xba","origof":"\u22b6","oror":"\u2a56","orslope":"\u2a57","orv":"\u2a5b","oS":"\u24c8","Oscr":"\ud835\udcaa","oscr":"\u2134","Oslash":"\xd8","oslash":"\xf8","osol":"\u2298","Otilde":"\xd5","otilde":"\xf5","otimesas":"\u2a36","Otimes":"\u2a37","otimes":"\u2297","Ouml":"\xd6","ouml":"\xf6","ovbar":"\u233d","OverBar":"\u203e","OverBrace":"\u23de","OverBracket":"\u23b4","OverParenthesis":"\u23dc","para":"\xb6","parallel":"\u2225","par":"\u2225","parsim":"\u2af3","parsl":"\u2afd","part":"\u2202","PartialD":"\u2202","Pcy":"\u041f","pcy":"\u043f","percnt":"%","period":".","permil":"\u2030","perp":"\u22a5","pertenk":"\u2031","Pfr":"\ud835\udd13","pfr":"\ud835\udd2d","Phi":"\u03a6","phi":"\u03c6","phiv":"\u03d5","phmmat":"\u2133","phone":"\u260e","Pi":"\u03a0","pi":"\u03c0","pitchfork":"\u22d4","piv":"\u03d6","planck":"\u210f","planckh":"\u210e","plankv":"\u210f","plusacir":"\u2a23","plusb":"\u229e","pluscir":"\u2a22","plus":"+","plusdo":"\u2214","plusdu":"\u2a25","pluse":"\u2a72","PlusMinus":"\xb1","plusmn":"\xb1","plussim":"\u2a26","plustwo":"\u2a27","pm":"\xb1","Poincareplane":"\u210c","pointint":"\u2a15","popf":"\ud835\udd61","Popf":"\u2119","pound":"\xa3","prap":"\u2ab7","Pr":"\u2abb","pr":"\u227a","prcue":"\u227c","precapprox":"\u2ab7","prec":"\u227a","preccurlyeq":"\u227c","Precedes":"\u227a","PrecedesEqual":"\u2aaf","PrecedesSlantEqual":"\u227c","PrecedesTilde":"\u227e","preceq":"\u2aaf","precnapprox":"\u2ab9","precneqq":"\u2ab5","precnsim":"\u22e8","pre":"\u2aaf","prE":"\u2ab3","precsim":"\u227e","prime":"\u2032","Prime":"\u2033","primes":"\u2119","prnap":"\u2ab9","prnE":"\u2ab5","prnsim":"\u22e8","prod":"\u220f","Product":"\u220f","profalar":"\u232e","profline":"\u2312","profsurf":"\u2313","prop":"\u221d","Proportional":"\u221d","Proportion":"\u2237","propto":"\u221d","prsim":"\u227e","prurel":"\u22b0","Pscr":"\ud835\udcab","pscr":"\ud835\udcc5","Psi":"\u03a8","psi":"\u03c8","puncsp":"\u2008","Qfr":"\ud835\udd14","qfr":"\ud835\udd2e","qint":"\u2a0c","qopf":"\ud835\udd62","Qopf":"\u211a","qprime":"\u2057","Qscr":"\ud835\udcac","qscr":"\ud835\udcc6","quaternions":"\u210d","quatint":"\u2a16","quest":"?","questeq":"\u225f","quot":"\\"","QUOT":"\\"","rAarr":"\u21db","race":"\u223d\u0331","Racute":"\u0154","racute":"\u0155","radic":"\u221a","raemptyv":"\u29b3","rang":"\u27e9","Rang":"\u27eb","rangd":"\u2992","range":"\u29a5","rangle":"\u27e9","raquo":"\xbb","rarrap":"\u2975","rarrb":"\u21e5","rarrbfs":"\u2920","rarrc":"\u2933","rarr":"\u2192","Rarr":"\u21a0","rArr":"\u21d2","rarrfs":"\u291e","rarrhk":"\u21aa","rarrlp":"\u21ac","rarrpl":"\u2945","rarrsim":"\u2974","Rarrtl":"\u2916","rarrtl":"\u21a3","rarrw":"\u219d","ratail":"\u291a","rAtail":"\u291c","ratio":"\u2236","rationals":"\u211a","rbarr":"\u290d","rBarr":"\u290f","RBarr":"\u2910","rbbrk":"\u2773","rbrace":"}","rbrack":"]","rbrke":"\u298c","rbrksld":"\u298e","rbrkslu":"\u2990","Rcaron":"\u0158","rcaron":"\u0159","Rcedil":"\u0156","rcedil":"\u0157","rceil":"\u2309","rcub":"}","Rcy":"\u0420","rcy":"\u0440","rdca":"\u2937","rdldhar":"\u2969","rdquo":"\u201d","rdquor":"\u201d","rdsh":"\u21b3","real":"\u211c","realine":"\u211b","realpart":"\u211c","reals":"\u211d","Re":"\u211c","rect":"\u25ad","reg":"\xae","REG":"\xae","ReverseElement":"\u220b","ReverseEquilibrium":"\u21cb","ReverseUpEquilibrium":"\u296f","rfisht":"\u297d","rfloor":"\u230b","rfr":"\ud835\udd2f","Rfr":"\u211c","rHar":"\u2964","rhard":"\u21c1","rharu":"\u21c0","rharul":"\u296c","Rho":"\u03a1","rho":"\u03c1","rhov":"\u03f1","RightAngleBracket":"\u27e9","RightArrowBar":"\u21e5","rightarrow":"\u2192","RightArrow":"\u2192","Rightarrow":"\u21d2","RightArrowLeftArrow":"\u21c4","rightarrowtail":"\u21a3","RightCeiling":"\u2309","RightDoubleBracket":"\u27e7","RightDownTeeVector":"\u295d","RightDownVectorBar":"\u2955","RightDownVector":"\u21c2","RightFloor":"\u230b","rightharpoondown":"\u21c1","rightharpoonup":"\u21c0","rightleftarrows":"\u21c4","rightleftharpoons":"\u21cc","rightrightarrows":"\u21c9","rightsquigarrow":"\u219d","RightTeeArrow":"\u21a6","RightTee":"\u22a2","RightTeeVector":"\u295b","rightthreetimes":"\u22cc","RightTriangleBar":"\u29d0","RightTriangle":"\u22b3","RightTriangleEqual":"\u22b5","RightUpDownVector":"\u294f","RightUpTeeVector":"\u295c","RightUpVectorBar":"\u2954","RightUpVector":"\u21be","RightVectorBar":"\u2953","RightVector":"\u21c0","ring":"\u02da","risingdotseq":"\u2253","rlarr":"\u21c4","rlhar":"\u21cc","rlm":"\u200f","rmoustache":"\u23b1","rmoust":"\u23b1","rnmid":"\u2aee","roang":"\u27ed","roarr":"\u21fe","robrk":"\u27e7","ropar":"\u2986","ropf":"\ud835\udd63","Ropf":"\u211d","roplus":"\u2a2e","rotimes":"\u2a35","RoundImplies":"\u2970","rpar":")","rpargt":"\u2994","rppolint":"\u2a12","rrarr":"\u21c9","Rrightarrow":"\u21db","rsaquo":"\u203a","rscr":"\ud835\udcc7","Rscr":"\u211b","rsh":"\u21b1","Rsh":"\u21b1","rsqb":"]","rsquo":"\u2019","rsquor":"\u2019","rthree":"\u22cc","rtimes":"\u22ca","rtri":"\u25b9","rtrie":"\u22b5","rtrif":"\u25b8","rtriltri":"\u29ce","RuleDelayed":"\u29f4","ruluhar":"\u2968","rx":"\u211e","Sacute":"\u015a","sacute":"\u015b","sbquo":"\u201a","scap":"\u2ab8","Scaron":"\u0160","scaron":"\u0161","Sc":"\u2abc","sc":"\u227b","sccue":"\u227d","sce":"\u2ab0","scE":"\u2ab4","Scedil":"\u015e","scedil":"\u015f","Scirc":"\u015c","scirc":"\u015d","scnap":"\u2aba","scnE":"\u2ab6","scnsim":"\u22e9","scpolint":"\u2a13","scsim":"\u227f","Scy":"\u0421","scy":"\u0441","sdotb":"\u22a1","sdot":"\u22c5","sdote":"\u2a66","searhk":"\u2925","searr":"\u2198","seArr":"\u21d8","searrow":"\u2198","sect":"\xa7","semi":";","seswar":"\u2929","setminus":"\u2216","setmn":"\u2216","sext":"\u2736","Sfr":"\ud835\udd16","sfr":"\ud835\udd30","sfrown":"\u2322","sharp":"\u266f","SHCHcy":"\u0429","shchcy":"\u0449","SHcy":"\u0428","shcy":"\u0448","ShortDownArrow":"\u2193","ShortLeftArrow":"\u2190","shortmid":"\u2223","shortparallel":"\u2225","ShortRightArrow":"\u2192","ShortUpArrow":"\u2191","shy":"\xad","Sigma":"\u03a3","sigma":"\u03c3","sigmaf":"\u03c2","sigmav":"\u03c2","sim":"\u223c","simdot":"\u2a6a","sime":"\u2243","simeq":"\u2243","simg":"\u2a9e","simgE":"\u2aa0","siml":"\u2a9d","simlE":"\u2a9f","simne":"\u2246","simplus":"\u2a24","simrarr":"\u2972","slarr":"\u2190","SmallCircle":"\u2218","smallsetminus":"\u2216","smashp":"\u2a33","smeparsl":"\u29e4","smid":"\u2223","smile":"\u2323","smt":"\u2aaa","smte":"\u2aac","smtes":"\u2aac\ufe00","SOFTcy":"\u042c","softcy":"\u044c","solbar":"\u233f","solb":"\u29c4","sol":"/","Sopf":"\ud835\udd4a","sopf":"\ud835\udd64","spades":"\u2660","spadesuit":"\u2660","spar":"\u2225","sqcap":"\u2293","sqcaps":"\u2293\ufe00","sqcup":"\u2294","sqcups":"\u2294\ufe00","Sqrt":"\u221a","sqsub":"\u228f","sqsube":"\u2291","sqsubset":"\u228f","sqsubseteq":"\u2291","sqsup":"\u2290","sqsupe":"\u2292","sqsupset":"\u2290","sqsupseteq":"\u2292","square":"\u25a1","Square":"\u25a1","SquareIntersection":"\u2293","SquareSubset":"\u228f","SquareSubsetEqual":"\u2291","SquareSuperset":"\u2290","SquareSupersetEqual":"\u2292","SquareUnion":"\u2294","squarf":"\u25aa","squ":"\u25a1","squf":"\u25aa","srarr":"\u2192","Sscr":"\ud835\udcae","sscr":"\ud835\udcc8","ssetmn":"\u2216","ssmile":"\u2323","sstarf":"\u22c6","Star":"\u22c6","star":"\u2606","starf":"\u2605","straightepsilon":"\u03f5","straightphi":"\u03d5","strns":"\xaf","sub":"\u2282","Sub":"\u22d0","subdot":"\u2abd","subE":"\u2ac5","sube":"\u2286","subedot":"\u2ac3","submult":"\u2ac1","subnE":"\u2acb","subne":"\u228a","subplus":"\u2abf","subrarr":"\u2979","subset":"\u2282","Subset":"\u22d0","subseteq":"\u2286","subseteqq":"\u2ac5","SubsetEqual":"\u2286","subsetneq":"\u228a","subsetneqq":"\u2acb","subsim":"\u2ac7","subsub":"\u2ad5","subsup":"\u2ad3","succapprox":"\u2ab8","succ":"\u227b","succcurlyeq":"\u227d","Succeeds":"\u227b","SucceedsEqual":"\u2ab0","SucceedsSlantEqual":"\u227d","SucceedsTilde":"\u227f","succeq":"\u2ab0","succnapprox":"\u2aba","succneqq":"\u2ab6","succnsim":"\u22e9","succsim":"\u227f","SuchThat":"\u220b","sum":"\u2211","Sum":"\u2211","sung":"\u266a","sup1":"\xb9","sup2":"\xb2","sup3":"\xb3","sup":"\u2283","Sup":"\u22d1","supdot":"\u2abe","supdsub":"\u2ad8","supE":"\u2ac6","supe":"\u2287","supedot":"\u2ac4","Superset":"\u2283","SupersetEqual":"\u2287","suphsol":"\u27c9","suphsub":"\u2ad7","suplarr":"\u297b","supmult":"\u2ac2","supnE":"\u2acc","supne":"\u228b","supplus":"\u2ac0","supset":"\u2283","Supset":"\u22d1","supseteq":"\u2287","supseteqq":"\u2ac6","supsetneq":"\u228b","supsetneqq":"\u2acc","supsim":"\u2ac8","supsub":"\u2ad4","supsup":"\u2ad6","swarhk":"\u2926","swarr":"\u2199","swArr":"\u21d9","swarrow":"\u2199","swnwar":"\u292a","szlig":"\xdf","Tab":"\\t","target":"\u2316","Tau":"\u03a4","tau":"\u03c4","tbrk":"\u23b4","Tcaron":"\u0164","tcaron":"\u0165","Tcedil":"\u0162","tcedil":"\u0163","Tcy":"\u0422","tcy":"\u0442","tdot":"\u20db","telrec":"\u2315","Tfr":"\ud835\udd17","tfr":"\ud835\udd31","there4":"\u2234","therefore":"\u2234","Therefore":"\u2234","Theta":"\u0398","theta":"\u03b8","thetasym":"\u03d1","thetav":"\u03d1","thickapprox":"\u2248","thicksim":"\u223c","ThickSpace":"\u205f\u200a","ThinSpace":"\u2009","thinsp":"\u2009","thkap":"\u2248","thksim":"\u223c","THORN":"\xde","thorn":"\xfe","tilde":"\u02dc","Tilde":"\u223c","TildeEqual":"\u2243","TildeFullEqual":"\u2245","TildeTilde":"\u2248","timesbar":"\u2a31","timesb":"\u22a0","times":"\xd7","timesd":"\u2a30","tint":"\u222d","toea":"\u2928","topbot":"\u2336","topcir":"\u2af1","top":"\u22a4","Topf":"\ud835\udd4b","topf":"\ud835\udd65","topfork":"\u2ada","tosa":"\u2929","tprime":"\u2034","trade":"\u2122","TRADE":"\u2122","triangle":"\u25b5","triangledown":"\u25bf","triangleleft":"\u25c3","trianglelefteq":"\u22b4","triangleq":"\u225c","triangleright":"\u25b9","trianglerighteq":"\u22b5","tridot":"\u25ec","trie":"\u225c","triminus":"\u2a3a","TripleDot":"\u20db","triplus":"\u2a39","trisb":"\u29cd","tritime":"\u2a3b","trpezium":"\u23e2","Tscr":"\ud835\udcaf","tscr":"\ud835\udcc9","TScy":"\u0426","tscy":"\u0446","TSHcy":"\u040b","tshcy":"\u045b","Tstrok":"\u0166","tstrok":"\u0167","twixt":"\u226c","twoheadleftarrow":"\u219e","twoheadrightarrow":"\u21a0","Uacute":"\xda","uacute":"\xfa","uarr":"\u2191","Uarr":"\u219f","uArr":"\u21d1","Uarrocir":"\u2949","Ubrcy":"\u040e","ubrcy":"\u045e","Ubreve":"\u016c","ubreve":"\u016d","Ucirc":"\xdb","ucirc":"\xfb","Ucy":"\u0423","ucy":"\u0443","udarr":"\u21c5","Udblac":"\u0170","udblac":"\u0171","udhar":"\u296e","ufisht":"\u297e","Ufr":"\ud835\udd18","ufr":"\ud835\udd32","Ugrave":"\xd9","ugrave":"\xf9","uHar":"\u2963","uharl":"\u21bf","uharr":"\u21be","uhblk":"\u2580","ulcorn":"\u231c","ulcorner":"\u231c","ulcrop":"\u230f","ultri":"\u25f8","Umacr":"\u016a","umacr":"\u016b","uml":"\xa8","UnderBar":"_","UnderBrace":"\u23df","UnderBracket":"\u23b5","UnderParenthesis":"\u23dd","Union":"\u22c3","UnionPlus":"\u228e","Uogon":"\u0172","uogon":"\u0173","Uopf":"\ud835\udd4c","uopf":"\ud835\udd66","UpArrowBar":"\u2912","uparrow":"\u2191","UpArrow":"\u2191","Uparrow":"\u21d1","UpArrowDownArrow":"\u21c5","updownarrow":"\u2195","UpDownArrow":"\u2195","Updownarrow":"\u21d5","UpEquilibrium":"\u296e","upharpoonleft":"\u21bf","upharpoonright":"\u21be","uplus":"\u228e","UpperLeftArrow":"\u2196","UpperRightArrow":"\u2197","upsi":"\u03c5","Upsi":"\u03d2","upsih":"\u03d2","Upsilon":"\u03a5","upsilon":"\u03c5","UpTeeArrow":"\u21a5","UpTee":"\u22a5","upuparrows":"\u21c8","urcorn":"\u231d","urcorner":"\u231d","urcrop":"\u230e","Uring":"\u016e","uring":"\u016f","urtri":"\u25f9","Uscr":"\ud835\udcb0","uscr":"\ud835\udcca","utdot":"\u22f0","Utilde":"\u0168","utilde":"\u0169","utri":"\u25b5","utrif":"\u25b4","uuarr":"\u21c8","Uuml":"\xdc","uuml":"\xfc","uwangle":"\u29a7","vangrt":"\u299c","varepsilon":"\u03f5","varkappa":"\u03f0","varnothing":"\u2205","varphi":"\u03d5","varpi":"\u03d6","varpropto":"\u221d","varr":"\u2195","vArr":"\u21d5","varrho":"\u03f1","varsigma":"\u03c2","varsubsetneq":"\u228a\ufe00","varsubsetneqq":"\u2acb\ufe00","varsupsetneq":"\u228b\ufe00","varsupsetneqq":"\u2acc\ufe00","vartheta":"\u03d1","vartriangleleft":"\u22b2","vartriangleright":"\u22b3","vBar":"\u2ae8","Vbar":"\u2aeb","vBarv":"\u2ae9","Vcy":"\u0412","vcy":"\u0432","vdash":"\u22a2","vDash":"\u22a8","Vdash":"\u22a9","VDash":"\u22ab","Vdashl":"\u2ae6","veebar":"\u22bb","vee":"\u2228","Vee":"\u22c1","veeeq":"\u225a","vellip":"\u22ee","verbar":"|","Verbar":"\u2016","vert":"|","Vert":"\u2016","VerticalBar":"\u2223","VerticalLine":"|","VerticalSeparator":"\u2758","VerticalTilde":"\u2240","VeryThinSpace":"\u200a","Vfr":"\ud835\udd19","vfr":"\ud835\udd33","vltri":"\u22b2","vnsub":"\u2282\u20d2","vnsup":"\u2283\u20d2","Vopf":"\ud835\udd4d","vopf":"\ud835\udd67","vprop":"\u221d","vrtri":"\u22b3","Vscr":"\ud835\udcb1","vscr":"\ud835\udccb","vsubnE":"\u2acb\ufe00","vsubne":"\u228a\ufe00","vsupnE":"\u2acc\ufe00","vsupne":"\u228b\ufe00","Vvdash":"\u22aa","vzigzag":"\u299a","Wcirc":"\u0174","wcirc":"\u0175","wedbar":"\u2a5f","wedge":"\u2227","Wedge":"\u22c0","wedgeq":"\u2259","weierp":"\u2118","Wfr":"\ud835\udd1a","wfr":"\ud835\udd34","Wopf":"\ud835\udd4e","wopf":"\ud835\udd68","wp":"\u2118","wr":"\u2240","wreath":"\u2240","Wscr":"\ud835\udcb2","wscr":"\ud835\udccc","xcap":"\u22c2","xcirc":"\u25ef","xcup":"\u22c3","xdtri":"\u25bd","Xfr":"\ud835\udd1b","xfr":"\ud835\udd35","xharr":"\u27f7","xhArr":"\u27fa","Xi":"\u039e","xi":"\u03be","xlarr":"\u27f5","xlArr":"\u27f8","xmap":"\u27fc","xnis":"\u22fb","xodot":"\u2a00","Xopf":"\ud835\udd4f","xopf":"\ud835\udd69","xoplus":"\u2a01","xotime":"\u2a02","xrarr":"\u27f6","xrArr":"\u27f9","Xscr":"\ud835\udcb3","xscr":"\ud835\udccd","xsqcup":"\u2a06","xuplus":"\u2a04","xutri":"\u25b3","xvee":"\u22c1","xwedge":"\u22c0","Yacute":"\xdd","yacute":"\xfd","YAcy":"\u042f","yacy":"\u044f","Ycirc":"\u0176","ycirc":"\u0177","Ycy":"\u042b","ycy":"\u044b","yen":"\xa5","Yfr":"\ud835\udd1c","yfr":"\ud835\udd36","YIcy":"\u0407","yicy":"\u0457","Yopf":"\ud835\udd50","yopf":"\ud835\udd6a","Yscr":"\ud835\udcb4","yscr":"\ud835\udcce","YUcy":"\u042e","yucy":"\u044e","yuml":"\xff","Yuml":"\u0178","Zacute":"\u0179","zacute":"\u017a","Zcaron":"\u017d","zcaron":"\u017e","Zcy":"\u0417","zcy":"\u0437","Zdot":"\u017b","zdot":"\u017c","zeetrf":"\u2128","ZeroWidthSpace":"\u200b","Zeta":"\u0396","zeta":"\u03b6","zfr":"\ud835\udd37","Zfr":"\u2128","ZHcy":"\u0416","zhcy":"\u0436","zigrarr":"\u21dd","zopf":"\ud835\udd6b","Zopf":"\u2124","Zscr":"\ud835\udcb5","zscr":"\ud835\udccf","zwj":"\u200d","zwnj":"\u200c"}')
     },
-    xbZt: function(e, t) {
-        function n(e, t) {
-            e.prototype = Object.create(t.prototype), e.prototype.constructor = e, e.__proto__ = t
-        }
-        e.exports = n
-    },
     xg5P: function(e, t, n) {
         "use strict";
         n.r(t), n.d(t, "_onCreate", function() {
@@ -43931,16 +43995,20 @@
         "use strict";
         n.d(t, "b", function() {
             return r
-        }), n.d(t, "d", function() {
-            return o
-        }), n.d(t, "c", function() {
-            return a
         }), n.d(t, "e", function() {
-            return i
+            return o
         }), n.d(t, "f", function() {
+            return a
+        }), n.d(t, "c", function() {
+            return i
+        }), n.d(t, "g", function() {
             return s
-        }), n.d(t, "a", function() {
+        }), n.d(t, "h", function() {
             return c
+        }), n.d(t, "a", function() {
+            return l
+        }), n.d(t, "d", function() {
+            return u
         });
         n("wd/R");
 
@@ -43953,24 +44021,32 @@
         }
 
         function a() {
-            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("android")
+            return navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2
         }
 
         function i() {
-            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("macintosh")
+            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("android")
         }
 
         function s() {
-            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("windows")
+            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("macintosh")
         }
 
         function c() {
+            return -1 !== window.navigator.userAgent.toLowerCase().indexOf("windows")
+        }
+
+        function l() {
             var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
             e = parseInt(e);
             var t = 1024,
                 n = 1048576,
                 r = 1073741824;
             return e > r ? (e / r).toFixed(2) + " GB" : e > n ? (e / n).toFixed(2) + " MB" : e > t ? (e / t).toFixed(2) + " KB" : e < 0 ? 0 : e.toFixed(2) + " B"
+        }
+
+        function u(e) {
+            return null !== e && e < (new Date).getTime() / 1e3
         }
     },
     yw4e: function(e, t) {
