@@ -13334,7 +13334,7 @@
                         target: "_blank"
                     }, "邮件   "),
                     o.a.createElement("a", {
-                        href: "/#/tutorial"
+                        href: "/#/knowledge"
                     }, "教程   ")),
                     o.a.createElement("li", {
                         className: ""
