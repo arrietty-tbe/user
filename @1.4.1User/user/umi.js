@@ -30013,7 +30013,7 @@
                 }), t.push({
                     title: "QuantumultX",
                     href: "quantumult-x:///update-configuration?remote-resource=" + encodeURI(JSON.stringify({
-                        server_remote: [e + ", tag=" + window.settings.title]
+                        server_remote: [[e + ", tag=Flyint.in" + ", img-url=https://raw.githubusercontent.com/TerrorbladeART/clashX/master/flyint.png"]
                     }))
                 }), t.push({
                     title: "Surge",
