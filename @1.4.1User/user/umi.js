@@ -18732,7 +18732,7 @@
             "forgetPassword.password": "\u5bc6\u7801",
             "forgetPassword.reset_password": "\u91cd\u7f6e\u5bc6\u7801",
             "forgetPassword.back_login": "\u8fd4\u56de\u767b\u5165",
-            "invite.table_code": "\u9080\u8bf7\u7801(\u79fb\u52a8\u8bbe\u5907\u5c4f\u5e55\u5de6\u6ed1\u67e5\u770b\u66f4\u591a\u8be6\u60c5->)",
+            "invite.table_code": "\u9080\u8bf7\u7801(\u624b\u673a\u5de6\u6ed1\u590d\u5236\u9080\u8bf7\u7801->)",
             "invite.table_create_time": "\u521b\u5efa\u65f6\u95f4",
             "invite.table_action": "\u64cd\u4f5c",
             "invite.copy_link": "\u590d\u5236\u94fe\u63a5",
@@ -18913,7 +18913,7 @@
             "withdraw_modal.withdraw_method": "\u63d0\u73b0\u65b9\u5f0f",
             "withdraw_modal.please_select_method": "\u8bf7\u9009\u62e9\u63d0\u73b0\u65b9\u5f0f",
             "withdraw_modal.withdraw_account": "\u63d0\u73b0\u8d26\u53f7",
-            "withdraw_modal.please_enter_account": "\u8bf7\u8f93\u5165\u63d0\u73b0\u8d26\u53f7",
+            "withdraw_modal.please_enter_account": "请输入TRC20地址",
             "withdraw_modal.alipay": "\u652f\u4ed8\u5b9d",
             "withdraw_modal.paypal": "\u8d1d\u5b9d(Paypal)",
             "withdraw_modal.usdt": "USDT",
@@ -23966,7 +23966,7 @@
                     class: "alert-pink",
                     target: "_blank",
                     href: "https://flyintx.com"
-                }, "flyintx.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
+                }, "flyintx.com"))),p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
                 }, s.a.createElement("p", {
@@ -23978,7 +23978,7 @@
                     href: "javascript:void(0)"
                 }, Object(v["formatMessage"])({
                     id: "dashboard.click_here_bind"
-                })))," 如果你不知道Telegram是什么,则无需绑定.")) : s.a.createElement(s.a.Fragment, null), u.length > 0 && (u.length > 1 ? s.a.createElement(a["a"], {
+                }))))) : s.a.createElement(s.a.Fragment, null), u.length > 0 && (u.length > 1 ? s.a.createElement(a["a"], {
                     className: "mb-3",
                     autoplay: !0
                 }, u.map(e => {
@@ -27723,12 +27723,13 @@
                     onClick: () => l.a.push("/forgetpassword")
                 }, Object(u["formatMessage"])({
                     id: "login.forget_password"
-                })))),,i.a.createElement("div", {
+                })))),
+                i.a.createElement("div", {
                     className: "text-center mt-3"
                 },i.a.createElement("h1", {
                     className: "text-muted font-w700"
                 }, "禁止极端政治、宗教涉恐")
-                ))))))))
+                )))))))))
             }
         }
         t["default"] = Object(s["c"])(e => {
@@ -30012,7 +30013,7 @@
                 }), t.push({
                     title: "QuantumultX",
                     href: "quantumult-x:///update-configuration?remote-resource=" + encodeURI(JSON.stringify({
-                        server_remote: [e + ", tag=Flyint.in" + ", img-url=https://raw.githubusercontent.com/TerrorbladeART/clashX/master/flyint.png"]
+                        server_remote: [e + ", tag=" + window.settings.title]
                     }))
                 }), t.push({
                     title: "Surge",
@@ -39079,7 +39080,7 @@
                     className: "font-size-sm text-muted mb-0"
                 },d.a.createElement("span", {
                     className: "ant-tag"
-                },"流媒体解锁"),":可观看Netflix/Hulu/TVB/... 版权资源"),n ? d.a.createElement("div", {
+                },"流媒体解锁"),":可观看Netflix/Hulu/TVB/... 版权资源"), n ? d.a.createElement("div", {
                     className: "spinner-grow text-primary",
                     role: "status"
                 }, d.a.createElement("span", {
