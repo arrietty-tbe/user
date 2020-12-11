@@ -27652,7 +27652,12 @@
                     onClick: () => l.a.push("/forgetpassword")
                 }, Object(u["formatMessage"])({
                     id: "login.forget_password"
-                }))))))))))))
+                })))),i.a.createElement("div", {
+                    className: "text-center mt-3"
+                },i.a.createElement("h1", {
+                    className: "text-muted font-w700"
+                }, "禁止极端政治、宗教涉恐")
+                )))))))))
             }
         }
         t["default"] = Object(s["c"])(e => {
