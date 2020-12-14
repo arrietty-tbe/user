@@ -8383,7 +8383,7 @@
         }, S.defaultProps = {
             onEnd: function() {},
             onClose: function() {},
-            duration: 1.5,
+            duration: 7,
             style: {
                 right: "50%"
             }
@@ -27796,7 +27796,7 @@
                     description: Object(f["formatMessage"])({
                         id: "register.two_password_error"
                     }),
-                    duration: 1.5
+                    duration: 7
                 });
                 this.props.dispatch({
                     type: "passport/register",
@@ -36317,7 +36317,7 @@
                 if (this.refs.password.value !== this.refs.repassword.value) return o["a"].error({
                     message: "\u8bf7\u6c42\u9519\u8bef",
                     description: "\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
-                    duration: 1.5
+                    duration: 7
                 });
                 this.props.dispatch({
                     type: "passport/forget",
@@ -37905,7 +37905,7 @@
                                     id: "request.error"
                                 }),
                                 description: Object.values(a.errors)[0][0],
-                                duration: 1.5
+                                duration: 7
                             }), e.abrupt("return", {
                                 code: r.status,
                                 msg: Object.values(a.errors)[0][0]
@@ -37916,7 +37916,7 @@
                                     id: "request.error"
                                 }),
                                 description: a.message,
-                                duration: 1.5
+                                duration: 7
                             }), e.abrupt("return", {
                                 code: r.status,
                                 msg: a.message
@@ -42222,7 +42222,7 @@
                                     r["a"].success({
                                         message: "\u53d1\u9001\u6210\u529f",
                                         description: "\u5982\u679c\u6ca1\u6709\u9a8c\u8bc1\u7801\u8bf7\u68c0\u67e5\u5783\u573e\u7bb1\u3002",
-                                        duration: 1.5
+                                        duration: 7
                                     }), "function" === typeof i && i();
                                 case 18:
                                 case "end":
