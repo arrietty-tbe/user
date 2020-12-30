@@ -18497,7 +18497,7 @@
                     })
                 }, o.a.createElement("i", {
                     className: "fa fa-fw fa-bars"
-                })), this.props.search && o.a.createElement("button", {
+                }), "菜单"), this.props.search && o.a.createElement("button", {
                     type: "button",
                     className: "btn btn-dual",
                     onClick: () => {
