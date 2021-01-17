@@ -36527,7 +36527,7 @@
                             return c.a.createElement("div", null, c.a.createElement("a", {
                                 href: "javascript:void(0);",
                                 onClick: () => {
-                                    p()("https://www.flyint.win" + window.location.pathname + "#/register?code=" + t.code), i["a"].success(Object(y["formatMessage"])({
+                                    p()("https://go.xazwdj.com" + window.location.pathname + "#/register?code=" + t.code), i["a"].success(Object(y["formatMessage"])({
                                         id: "invite.copy_success"
                                     }))
                                 }
