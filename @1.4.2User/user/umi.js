@@ -23961,7 +23961,7 @@
                     class: "alert alert-info"
                 }, s.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "本站备用域名 ", s.a.createElement("a", {
+                }, "本站备用高速域名 ", s.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
                     href: "https://go.xazwdj.com"
