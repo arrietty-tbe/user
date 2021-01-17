@@ -23964,8 +23964,8 @@
                 }, "本站备用域名 ", s.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
-                    href: "https://flyintx.com"
-                }, "flyintx.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
+                    href: "https://go.xazwdj.com"
+                }, "https://go.xazwdj.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
                 }, s.a.createElement("p", {
