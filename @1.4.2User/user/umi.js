@@ -18814,7 +18814,7 @@
             "profile.reset_subscribe": "\u91cd\u7f6e\u8ba2\u9605\u4fe1\u606f",
             "profile.reset": "\u91cd\u7f6e",
             "profile.reset_info_notify_title": "\u786e\u5b9a\u8981\u91cd\u7f6e\u8ba2\u9605\u4fe1\u606f\uff1f",
-            "profile.reset_info_notify_content": "\u5982\u679c\u4f60\u7684\u8ba2\u9605\u5730\u5740\u6216\u4fe1\u606f\u6cc4\u9732\u53ef\u4ee5\u8fdb\u884c\u6b64\u64cd\u4f5c\u3002\u91cd\u7f6e\u540e\u4f60\u7684UUID\u53ca\u8ba2\u9605\u5c06\u4f1a\u53d8\u66f4\uff0c\u9700\u8981\u91cd\u65b0\u8fdb\u884c\u8ba2\u9605\u3002",
+            "profile.reset_info_notify_content": "\u5982\u679c\u4f60\u7684\u8ba2\u9605\u5730\u5740\u6216\u4fe1\u606f\u6cc4\u9732\u53ef\u4ee5\u8fdb\u884c\u6b64\u64cd\u4f5c\u3002\u91cd\u7f6e\u540e\u4f60\u7684\u8ba2\u9605\u94fe\u63a5\u5c06\u4e0d\u53ef\u7528,\u5e76\u751f\u6210\u65b0\u7684\u53ef\u7528\u8ba2\u9605\u94fe\u63a5,\u8bf7\u52a1\u5fc5\u91cd\u65b0\u590d\u5236\u5bfc\u5165\u4f7f\u7528.",
             "profile.reset_info_notify_success": "\u91cd\u7f6e\u6210\u529f",
             "profile.two_password_error": "\u4e24\u6b21\u65b0\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
             "register.two_password_error": "\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
@@ -18856,7 +18856,7 @@
             "subscribe.reset_traffic_notify_confirm": "\u786e\u5b9a",
             "subscribe.reset_traffic_notify_cancel": "\u53d6\u6d88",
             "subscribe.reset_info_notify_title": "\u786e\u5b9a\u8981\u91cd\u7f6e\u8ba2\u9605\u4fe1\u606f\uff1f",
-            "subscribe.reset_info_notify_content": "\u5982\u679c\u4f60\u7684\u8ba2\u9605\u5730\u5740\u6216\u4fe1\u606f\u6cc4\u9732\u53ef\u4ee5\u8fdb\u884c\u6b64\u64cd\u4f5c\u3002\u91cd\u7f6e\u540e\u4f60\u7684UUID\u53ca\u8ba2\u9605\u5c06\u4f1a\u53d8\u66f4\uff0c\u9700\u8981\u91cd\u65b0\u8fdb\u884c\u8ba2\u9605\u3002",
+            "subscribe.reset_info_notify_content": "\u5982\u679c\u4f60\u7684\u8ba2\u9605\u5730\u5740\u6216\u4fe1\u606f\u6cc4\u9732\u53ef\u4ee5\u8fdb\u884c\u6b64\u64cd\u4f5c\u3002\u91cd\u7f6e\u540e\u4f60\u7684\u8ba2\u9605\u94fe\u63a5\u5c06\u4e0d\u53ef\u7528,\u5e76\u751f\u6210\u65b0\u7684\u53ef\u7528\u8ba2\u9605\u94fe\u63a5,\u8bf7\u52a1\u5fc5\u91cd\u65b0\u590d\u5236\u5bfc\u5165\u4f7f\u7528.",
             "subscribe.reset_info_notify_success": "\u91cd\u7f6e\u6210\u529f",
             "ticket.low": "\u4f4e",
             "ticket.middle": "\u4e2d",
@@ -23965,7 +23965,7 @@
                     class: "alert-pink",
                     target: "_blank",
                     href: "https://go.xazwdj.com"
-                }, "https://go.xazwdj.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
+                }, "go.xazwdj.com"))), p.isTelegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
                 }, s.a.createElement("p", {
