@@ -24965,12 +24965,7 @@
                     id: "main-container"
                 }, o.a.createElement("div", {
                     className: "content content-full"
-                }, o.a.createElement("div", {
-                    class: "alert alert-warning"
-                }, o.a.createElement("p", {
-                    class: "mb-0 font-w700"
-                }, "使用教程显示空白页面,请更换浏览器再尝试访问!")),
-                o.a.createElement("h2", {
+                }, o.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(s["formatMessage"])({
                     id: "knowledge"
@@ -38987,17 +38982,7 @@
                     id: "main-container"
                 }, d.a.createElement("div", {
                     className: "content content-full"
-                }, 
-                d.a.createElement("div", {
-                    class: "alert alert-danger"
-                }, d.a.createElement("p", {
-                    class: "mb-0 font-w700"
-                }, "务必经常", d.a.createElement("a", {
-                    class: "alert-pink",
-                    target: "_blank",
-                    href: "/#/knowledge"
-                }, "更新订阅"), ",获取最新节点!否则影响使用!")),
-                d.a.createElement("h2", {
+                }, d.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
                     id: "subscribe.my_subscribe"
