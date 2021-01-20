@@ -24969,7 +24969,7 @@
                     class: "alert alert-warning"
                 }, o.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "使用教程显示空白页面,请更换浏览器再尝试访问!")),
+                }, "如果使用教程显示空白页面,请更换浏览器再尝试访问!")),
                 o.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(s["formatMessage"])({
