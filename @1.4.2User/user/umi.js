@@ -18513,6 +18513,21 @@
                     id: "header.search"
                 })))), o.a.createElement("div", null), o.a.createElement("div", null, o.a.createElement("div", {
                     className: "dropdown d-inline-block"
+                },o.a.createElement("a", {
+                    className: "",
+                    href:"/info.html",
+                    target:"_blank"
+                }, o.a.createElement("button", {
+                    type: "button",
+                    className: "btn btn-dual mr-1",
+                    "data-toggle": "layout",
+                    "data-action": "side_overlay_toggle",
+                    onClick: () => this.showDropmenu("showLangMenu")
+                }, o.a.createElement("i", {
+                    className: "far fa fa-bell"
+                })))), 
+                o.a.createElement("div", {
+                    className: "dropdown d-inline-block"
                 }, o.a.createElement("button", {
                     type: "button",
                     className: "btn btn-dual mr-1",
@@ -18538,7 +18553,7 @@
                 }, "\u65e5\u672c\u8a9e"), o.a.createElement("a", {
                     className: "dropdown-item",
                     onClick: () => Object(c["setLocale"])("vi-VN")
-                }, "Ti\u1ebfng Vi\u1ec7t")))), this.state.loading ? o.a.createElement("div", {
+                }, "Ti\u1ebfng Vi\u1ec7t")))),this.state.loading ? o.a.createElement("div", {
                     className: "spinner-grow text-primary"
                 }) : o.a.createElement("div", {
                     className: "dropdown d-inline-block"
