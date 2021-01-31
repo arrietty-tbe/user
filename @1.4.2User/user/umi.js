@@ -18520,9 +18520,6 @@
                 }, o.a.createElement("button", {
                     type: "button",
                     className: "btn btn-dual mr-1",
-                    "data-toggle": "layout",
-                    "data-action": "side_overlay_toggle",
-                    onClick: () => this.showDropmenu("showLangMenu")
                 }, o.a.createElement("i", {
                     className: "far fa fa-bell"
                 })))), 
