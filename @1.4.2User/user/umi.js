@@ -13301,20 +13301,6 @@
                     }, "付款: "), "本站不支持原路退款操作,请先试用再做选择.感谢理解"),
                     o.a.createElement("li", {
                     },o.a.createElement("b", {
-                    }, "套餐规则: "), "下单日即为过期日即为每月流量重置日"),
-                    o.a.createElement("li", {
-                        className: ""
-                    },o.a.createElement("b", {
-                        className: ""
-                    }, "续费规则: "), "过期日增加31天, 并重置当前流量."),
-                    o.a.createElement("li", {
-                    },o.a.createElement("b", {
-                    }, "变换套餐规则: "), "相同套餐叠加,不同套餐则覆盖."),
-                    o.a.createElement("li", {
-                    },o.a.createElement("b", {
-                    }, "重置包规则: "), "重置当前流量,不增加时间."),
-                    o.a.createElement("li", {
-                    },o.a.createElement("b", {
                     }, "对您的约束: "), "您将无法通过代理访问少数特定极端站点."),
                     o.a.createElement("li", {
                     },o.a.createElement("b", {
