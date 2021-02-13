@@ -18753,7 +18753,7 @@
             "nav.traffic_detail": "\u6d41\u91cf\u660e\u7ec6",
             "nav.knowledge": "\u4f7f\u7528\u6587\u6863",
             "dashboard.not_bind_telegram": "\u7ed1\u5b9aTelegram\u83b7\u53d6\u66f4\u591a\u670d\u52a1",
-            "dashboard.click_here_bind": "\u70b9\u51fb\u8fd9\u91cc\u8fdb\u884c\u7ed1\u5b9a",
+            "dashboard.click_here_bind": "\u70b9\u51fb\u8fd9\u91cc\u8fdb\u884c\u7ed1\u5b9a(\u5982\u679c\u4e0d\u77e5\u9053\u662f\u4ec0\u4e48,\u5219\u65e0\u9700\u6b64\u64cd\u4f5c)",
             "dashboard.announcement": "\u516c\u544a",
             "dashboard.override": "\u603b\u89c8",
             "dashboard.pending_order": "\u5f85\u4ed8\u8ba2\u5355",
