@@ -25604,6 +25604,10 @@
             }
             render() {
                 var e = this.props.plan,
+                    j = this.props.plan.plan,
+                    k = this.props.user,
+                    q = k.userInfo.plan_id,
+                    m = k.subscribe,
                     t = e.plan,
                     n = e.selectCycle,
                     a = e.fetchLoading,
@@ -25613,7 +25617,13 @@
                     id: "main-container"
                 }, s.a.createElement("div", {
                     className: "content content-full"
-                }, s.a.createElement("h2", {
+                }, (q !== j.id && !Object(p["d"])(m.expired_at) || !m.expired_at) ? 
+                s.a.createElement("div", {
+                    class: "alert alert-danger"
+                }, s.a.createElement("p", {
+                    class: "mb-0 font-w700"
+                }, "注意: 您的购买会导致原订阅被新订阅覆盖!请注意!")) : "",
+                s.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(f["formatMessage"])({
                     id: "plan.setting_subscribe"
