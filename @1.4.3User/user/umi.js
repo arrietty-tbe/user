@@ -25531,7 +25531,7 @@
                     t = this.props.user,
                     n = t.userInfo.plan_id,
                     r = t.subscribe;
-                if (n !== e.id && !Object(p["d"])(r.expired_at)) return a["a"].confirm({
+                if (n !== e.id && !Object(p["d"])(r.expired_at) || !r.expired_at) return a["a"].confirm({
                     title: Object(f["formatMessage"])({
                         id: "plan.subscribe_change_title"
                     }),
