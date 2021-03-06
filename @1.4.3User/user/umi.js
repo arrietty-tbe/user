@@ -18866,7 +18866,7 @@
             "profile.reset_info_notify_success": "\u91cd\u7f6e\u6210\u529f",
             "profile.two_password_error": "\u4e24\u6b21\u65b0\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
             "register.two_password_error": "\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
-            "register.email": "\u90ae\u7bb1",
+            "register.email": "\u4f7f\u7528\u4e34\u65f6\u90ae\u7bb1\u6ce8\u518c\u53ef\u80fd\u4f1a\u88ab\u5c01\u7981!",
             "register.verify_code": "\u90ae\u7bb1\u9a8c\u8bc1\u7801",
             "register.password": "\u5bc6\u7801",
             "register.re_password": "\u5bc6\u7801",
