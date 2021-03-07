@@ -12,7 +12,7 @@
 #    例如 "protocol:bittorrent" 匹配BT协议
 
 # 轮子
-regexp:(.*.||)(youtube|twitch|netflix|speedtest|dafahao|minghui|dongtaiwang|dajiyuan|falundata|shenyun|tuidang|epochweekly|epochtimes|ntdtv|falundafa|wujieliulan|zhengjian).(org|com|net|cn|xyz|tv)
+regexp:(.*.||)(speedtest|dafahao|minghui|dongtaiwang|dajiyuan|falundata|shenyun|tuidang|epochweekly|epochtimes|ntdtv|falundafa|wujieliulan|zhengjian).(org|com|net|cn|xyz|tv)
 
 # BT
 regexp:(torrent|.torrent|peer_id=|info_hash|get_peers|find_node|BitTorrent|announce_peer|announce.php?passkey=)
