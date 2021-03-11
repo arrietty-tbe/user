@@ -24060,8 +24060,8 @@
                 }, "本站备用高速域名 ", s.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
-                    href: "https://go.xazwdj.com"
-                }, "go.xazwdj.com"))),
+                    href: "https://flyintx.com"
+                }, "www.flyintx.com"))),
                 p.is_telegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
