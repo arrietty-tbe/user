@@ -24062,15 +24062,6 @@
                     target: "_blank",
                     href: "https://flyintx.com"
                 }, "www.flyintx.com"))),
-                s.a.createElement("div", {
-                    class: "alert alert-info"
-                }, s.a.createElement("p", {
-                    class: "mb-0 font-w700"
-                }, "免费视频流媒体库 ", s.a.createElement("a", {
-                    class: "alert-pink",
-                    target: "_blank",
-                    href: "https://help.flyinttv.com"
-                }, "https://help.flyinttv.com"))),
                 p.is_telegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
