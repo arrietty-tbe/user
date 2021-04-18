@@ -39129,7 +39129,6 @@
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
                     id: "subscribe.my_subscribe"
-                })), f.id ? f.plan_id ? d.a.createElement(d.a.Fragment, null, d.a.createElement("div", {
                 })), d.a.createElement("div", {
                     class: "alert alert-success"
                 }, d.a.createElement("p", {
