@@ -18866,7 +18866,7 @@
             "profile.reset_info_notify_success": "\u91cd\u7f6e\u6210\u529f",
             "profile.two_password_error": "\u4e24\u6b21\u65b0\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
             "register.two_password_error": "\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u540c",
-            "register.email": "\u90ae\u7bb1(\u7981\u6b62\u4f7f\u7528\u4e00\u6b21\u6027\u90ae\u7bb1,\u5426\u5219\u5c01\u7981)",
+            "register.email": "\u90ae\u7bb1",
             "register.verify_code": "\u90ae\u7bb1\u9a8c\u8bc1\u7801",
             "register.password": "\u5bc6\u7801",
             "register.re_password": "\u5bc6\u7801",
@@ -39120,16 +39120,24 @@
                     class: "alert alert-danger"
                 }, d.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "务必经常", d.a.createElement("a", {
+                }, "请经常", d.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
                     href: "/#/knowledge"
-                }, "更新订阅"), ",获取最新节点!否则影响使用!")),
                 d.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
                     id: "subscribe.my_subscribe"
                 })), f.id ? f.plan_id ? d.a.createElement(d.a.Fragment, null, d.a.createElement("div", {
+                })), d.a.createElement("div", {
+                    class: "alert alert-success"
+                }, d.a.createElement("p", {
+                    class: "mb-0 font-w700"
+                }, "您可随时点开菜单查看 ", d.a.createElement("a", {
+                    class: "alert-pink",
+                    target: "_blank",
+                    href: "/#/knowledge"
+                }, "使用教程(The knowledge base)"))), f.id ? f.plan_id ? d.a.createElement(d.a.Fragment, null, d.a.createElement("div", {
                     className: "block block-rounded mb-2",
                     "data-toggle": "appear"
                 }, d.a.createElement("div", {
