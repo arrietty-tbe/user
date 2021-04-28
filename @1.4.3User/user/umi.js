@@ -30164,7 +30164,7 @@
                     }))), s.a.createElement(o["a"].Item, {
                         key: "0",
                         onClick: () => {
-                            u()("https://subadmin.flyint.in/sub?target=v2ray&url=" + this.props.subscribeUrl + "&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&exclude=%E6%B8%B8%E6%88%8F%E4%B8%93%E7%BA%BF&append_type=true&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=true&udp=true&surge.doh=true"), a["a"].success(Object(f["formatMessage"])({
+                            u()("https://subcon.dlj.tf/sub?target=v2ray&url=" + this.props.subscribeUrl + "&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&emoji=true&list=false&udp=true&tfo=false&scv=false&fdn=false&sort=false"), a["a"].success(Object(f["formatMessage"])({
                                 id: "one_click_subscribe.copy_success"
                             }))
                         }
