@@ -30161,7 +30161,16 @@
                         className: "fa fa-copy mr-2"
                     }), Object(f["formatMessage"])({
                         id: "one_click_subscribe.copy_subscribe_url"
-                    }))), t.map(e => {
+                    }))), s.a.createElement(o["a"].Item, {
+                        key: "0",
+                        onClick: () => {
+                            u()("https://subadmin.flyint.in/sub?target=v2ray&url=" + this.props.subscribeUrl + "&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&exclude=%E6%B8%B8%E6%88%8F%E4%B8%93%E7%BA%BF&append_type=true&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=true&udp=true&surge.doh=true"), a["a"].success(Object(f["formatMessage"])({
+                                id: "one_click_subscribe.copy_success"
+                            }))
+                        }
+                    }, s.a.createElement("a", null, s.a.createElement("i", {
+                        className: "fa fa-copy mr-2"
+                    }), "梅林专用订阅链接")), t.map(e => {
                         return s.a.createElement(o["a"].Item, {
                             key: Math.random(),
                             onClick: () => {
