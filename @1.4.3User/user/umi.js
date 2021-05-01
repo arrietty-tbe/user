@@ -24057,11 +24057,11 @@
                     class: "alert alert-info"
                 }, s.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "本站备用高速域名 ", s.a.createElement("a", {
+                }, "备用地址 ", s.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
-                    href: "https://flyintx.com"
-                }, "www.flyintx.com"))),
+                    href: "https://app.flyint.date"
+                }, "https://app.flyint.date"))),
                 p.is_telegram && i.email && !i.telegram_id ? s.a.createElement("div", {
                     className: "alert alert-danger",
                     role: "alert"
