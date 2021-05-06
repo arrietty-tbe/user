@@ -70,7 +70,22 @@
     content: "\f06a";
     color: #3b5998;
 }
+/***********抄NMGB抄,自己写!***********/
 /***********订阅***********/
+.recommand{
+    width: fit-content;
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 25px;
+    color: #ef3e3e;
+    background: rgb(224 23 27 / 10%);
+    border-radius: 16px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.recommand>i {
+    padding-right: 5px;
+}
 .flyint-plan-features {
 	padding: 0;
 	list-style: none;
