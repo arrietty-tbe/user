@@ -11958,7 +11958,7 @@
                     disabled: !0,
                     type: "text",
                     className: "form-control",
-                    value: t.commission_balance / 100
+                    value: t.commission_balance / 100 / 6.4
                 })), u.a.createElement("div", {
                     className: "form-group"
                 }, u.a.createElement("label", null, Object(m["formatMessage"])({
@@ -12145,15 +12145,15 @@
                     id: "profile.my_wallet"
                 })), u.a.createElement("p", {
                     className: "display-4 text-black font-w300 mb-2"
-                }, void 0 !== e.balance ? ((parseInt(e.balance) + parseInt(e.commission_balance)) / 100).toFixed(2) : "--.--", u.a.createElement("span", {
+                }, void 0 !== e.balance ? ((parseInt(e.balance) + parseInt(e.commission_balance)) / 100 / 6.4).toFixed(2) : "--.--", u.a.createElement("span", {
                     className: "font-size-h5 text-muted ml-4"
-                }, "CNY")), u.a.createElement(a["a"], {
+                }, "USD")), u.a.createElement(a["a"], {
                     placement: "right",
                     title: u.a.createElement("div", null, u.a.createElement("div", null, Object(m["formatMessage"])({
                         id: "profile.balance_tip"
-                    }), "\uff1a", (e.balance / 100).toFixed(2)), u.a.createElement("div", null, Object(m["formatMessage"])({
+                    }), "\uff1a", (e.balance / 100 / 6.4).toFixed(2)), u.a.createElement("div", null, Object(m["formatMessage"])({
                         id: "profile.commission_balance_tip"
-                    }), "\uff1a", (e.commission_balance / 100).toFixed(2)))
+                    }), "\uff1a", (e.commission_balance / 100 / 6.4).toFixed(2)))
                 }, u.a.createElement("span", {
                     className: "text-muted",
                     style: {
@@ -13367,7 +13367,7 @@
                         className: "py-2"
                     }, o.a.createElement("p", {
                         className: "h1 font-w700 mb-2"
-                    }, "\xa5 ", (this.getUnitPriceTag(e).price / 100).toFixed(2)), o.a.createElement("p", {
+                    }, "$ ", (this.getUnitPriceTag(e).price / 100 / 6.4).toFixed(2)), o.a.createElement("p", {
                         className: "h6 text-muted"
                     }, this.getUnitPriceTag(e).tag))), e.content ? o.a.createElement("div", {
                         className: "block-content"
@@ -14428,7 +14428,7 @@
                     className: "text-center"
                 }, d.a.createElement(i["a"], null, y["a"].cycleText[t.cycle] && y["a"].cycleText[t.cycle]())), d.a.createElement("td", {
                     className: "text-right"
-                }, (t.plan[t.cycle] / 100).toFixed(2))), t.discount_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
+                }, (t.plan[t.cycle] / 100 / 6.4).toFixed(2))), t.discount_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
                     className: "font-w600 mb-1"
                 }), d.a.createElement("div", {
                     className: "text-muted"
@@ -14438,7 +14438,7 @@
                     id: "order.discount"
                 }))), d.a.createElement("td", {
                     className: "text-right"
-                }, (t.discount_amount / 100).toFixed(2))) : "", t.surplus_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
+                }, (t.discount_amount / 100 / 6.4).toFixed(2))) : "", t.surplus_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
                     className: "font-w600 mb-1"
                 }), d.a.createElement("div", {
                     className: "text-muted"
@@ -14448,7 +14448,7 @@
                     id: "order.surplus"
                 }))), d.a.createElement("td", {
                     className: "text-right"
-                }, (t.surplus_amount / 100).toFixed(2))) : "", t.refund_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
+                }, (t.surplus_amount / 100 / 6.4).toFixed(2))) : "", t.refund_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
                     className: "font-w600 mb-1"
                 }), d.a.createElement("div", {
                     className: "text-muted"
@@ -14460,7 +14460,7 @@
                     id: "order.refund"
                 }))), d.a.createElement("td", {
                     className: "text-right"
-                }, "- ", (t.refund_amount / 100).toFixed(2))) : "", t.balance_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
+                }, "- ", (t.refund_amount / 100 / 6.4).toFixed(2))) : "", t.balance_amount ? d.a.createElement("tr", null, d.a.createElement("td", null, d.a.createElement("p", {
                     className: "font-w600 mb-1"
                 }), d.a.createElement("div", {
                     className: "text-muted"
@@ -14472,7 +14472,7 @@
                     id: "order.balance_pay"
                 }))), d.a.createElement("td", {
                     className: "text-right"
-                }, "- ", (t.balance_amount / 100).toFixed(2))) : "")))))), 0 === t.status && d.a.createElement(d.a.Fragment, null, d.a.createElement("h3", {
+                }, "- ", (t.balance_amount / 100 / 6.4).toFixed(2))) : "")))))), 0 === t.status && d.a.createElement(d.a.Fragment, null, d.a.createElement("h3", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(_["formatMessage"])({
                     id: "order.pay_method"
@@ -14532,7 +14532,7 @@
                     className: "col-8"
                 }, t.plan.name, " x ", y["a"].cycleText[t.cycle] && y["a"].cycleText[t.cycle]()), d.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "\xa5", (t.plan[t.cycle] / 100).toFixed(2))), t.discount_amount ? d.a.createElement("div", null, d.a.createElement("div", {
+                }, "$", (t.plan[t.cycle] / 100 / 6.4).toFixed(2))), t.discount_amount ? d.a.createElement("div", null, d.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
@@ -14548,7 +14548,7 @@
                     className: "col-8"
                 }), d.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "\xa5", (t.discount_amount / 100).toFixed(2)))) : "", t.surplus_amount ? d.a.createElement("div", null, d.a.createElement("div", {
+                }, "$", (t.discount_amount / 100 / 6.4).toFixed(2)))) : "", t.surplus_amount ? d.a.createElement("div", null, d.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
@@ -14564,7 +14564,7 @@
                     className: "col-8"
                 }), d.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "\xa5", (t.surplus_amount / 100).toFixed(2)))) : "", t.refund_amount ? d.a.createElement("div", null, d.a.createElement("div", {
+                }, "$", (t.surplus_amount / 100 / 6.4).toFixed(2)))) : "", t.refund_amount ? d.a.createElement("div", null, d.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
@@ -14580,7 +14580,7 @@
                     className: "col-8"
                 }), d.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "- \xa5", (t.refund_amount / 100).toFixed(2)))) : "", d.a.createElement("div", {
+                }, "- $", (t.refund_amount / 100 / 6.4).toFixed(2)))) : "", d.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
@@ -14589,7 +14589,7 @@
                     id: "order.total"
                 })), d.a.createElement("h1", {
                     className: "text-light mt-3 mb-3"
-                }, "\xa5 ", (t.total_amount / 100).toFixed(2), " CNY"), d.a.createElement("button", {
+                }, "$ ", (t.total_amount / 100 / 6.4).toFixed(2), " USD"), d.a.createElement("button", {
                     type: "button",
                     className: "btn btn-block btn-primary",
                     disabled: f || 6 === n && !v.token,
@@ -25577,7 +25577,7 @@
                     n = t.selectCycle,
                     r = t.plan,
                     o = r[n];
-                return e.name && (o -= this.couponProcess(o, e.type, e.value)), o <= 0 && (o = 0), (o / 100).toFixed(2)
+                return e.name && (o -= this.couponProcess(o, e.type, e.value)), o <= 0 && (o = 0), (o / 100 / 6.4).toFixed(2)
             }
             getCouponJSX() {
                 var e = this.props.coupon.coupon,
@@ -25600,7 +25600,7 @@
                     className: "col-8"
                 }, e.name), s.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "- \xa5", (this.couponProcess(r[n], e.type, e.value) / 100).toFixed(2))))
+                }, "- $", (this.couponProcess(r[n], e.type, e.value) / 100 / 6.4).toFixed(2))))
             }
             render() {
                 var e = this.props.plan,
@@ -25657,7 +25657,7 @@
                         value: e
                     }, u["a"].cycleText[e] && u["a"].cycleText[e](), s.a.createElement("br", null), s.a.createElement("span", {
                         className: "price"
-                    }, "\xa5", (t[e] / 100).toFixed(2))) : void 0
+                    }, "$", (t[e] / 100 / 6.4).toFixed(2))) : void 0
                 })))), s.a.createElement("div", {
                     className: "col-md-4 col-sm-12"
                 }, s.a.createElement("div", {
@@ -25703,7 +25703,7 @@
                     className: "col-8"
                 }, t.name, " x ", u["a"].cycleText[n] && u["a"].cycleText[n]()), s.a.createElement("div", {
                     className: "col-4 text-right"
-                }, "\xa5", (t[n] / 100).toFixed(2))), this.getCouponJSX(), s.a.createElement("div", {
+                }, "$", (t[n] / 100 / 6.4).toFixed(2))), this.getCouponJSX(), s.a.createElement("div", {
                     className: "pt-3",
                     style: {
                         color: "#646669"
@@ -25712,7 +25712,7 @@
                     id: "plan.total"
                 })), s.a.createElement("h1", {
                     className: "text-light mt-3 mb-3"
-                }, "\xa5 ", this.getTotalAmount(), " CNY"), s.a.createElement("button", {
+                }, "$ ", this.getTotalAmount(), " USD"), s.a.createElement("button", {
                     type: "button",
                     className: "btn btn-block btn-primary",
                     disabled: l,
@@ -36699,7 +36699,7 @@
                         dataIndex: "commission_balance",
                         key: "commission_balance",
                         render: e => {
-                            return (e / 100).toFixed(2)
+                            return (e / 100 / 6.4).toFixed(2)
                         }
                     }, {
                         title: Object(y["formatMessage"])({
@@ -36769,7 +36769,7 @@
                 }, c.a.createElement("div", null, c.a.createElement("a", {
                     className: "link-fx text-success font-size-h1 font-w700",
                     href: "javascript:void(0);"
-                }, void 0 !== t[2] ? "\xa5 ".concat(t[2] / 100) : c.a.createElement(a["a"], {
+                }, void 0 !== t[2] ? "$ ".concat((t[2] / 100 / 6.4).toFixed(2)) : c.a.createElement(a["a"], {
                     type: "loading"
                 })), c.a.createElement("div", {
                     className: "font-size-sm text-uppercase text-muted mt-1"
@@ -43818,7 +43818,7 @@
                         key: "total_amount",
                         align: "right",
                         render: e => {
-                            return (e / 100).toFixed(2)
+                            return (e / 100 / 6.4).toFixed(2)
                         }
                     }, {
                         title: Object(m["formatMessage"])({
