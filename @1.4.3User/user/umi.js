@@ -38992,15 +38992,15 @@
             }
             resetPackage() {
                 var e = this.props.user.subscribe,
+                    r = 1073741824,
+                    m = ((e.u + e.d) / r).toFixed(2),
                     t = this;
                 f["a"].confirm({
                     maskClosable: !0,
                     title: Object(E["formatMessage"])({
                         id: "subscribe.reset_traffic_notify_title"
                     }),
-                    content: Object(E["formatMessage"])({
-                        id: "subscribe.reset_traffic_notify_content"
-                    }),
+                    content: "重置当月流量: 仅清空您当前已使用的" + m + " GB, 套餐时间等都不会改变!, 点击确认后进行付款.",
                     onOk() {
                         w.a.push("/plan/" + e.plan_id), t.props.dispatch({
                             type: "plan/setState",
