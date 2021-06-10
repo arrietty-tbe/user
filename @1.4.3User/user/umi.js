@@ -12519,8 +12519,8 @@
                         paddingTop: 50
                     }
                 }, o.a.createElement("a", {
-                    href: "https://github.com/v2board/v2board"
-                }, "v2board"), " is best.")
+                    href: "https://app.flyint.date/"
+                }, "Flyint"), "飞数")
             }
         }
     },
@@ -18440,7 +18440,7 @@
                     href: "/"
                 }, o.a.createElement("span", {
                     className: "text-white-75"
-                }, window.settings.title ? window.settings.title : "V2Board")), o.a.createElement("div", {
+                }, window.settings.title ? window.settings.title : "Flyint")), o.a.createElement("div", {
                     className: "d-lg-none"
                 }, o.a.createElement("a", {
                     className: "text-white ml-2",
@@ -27784,9 +27784,9 @@
                     href: "javascript:void(0);"
                 }, i.a.createElement("span", {
                     className: "text-dark"
-                }, window.settings.title || "V2Board")), i.a.createElement("p", {
+                }, window.settings.title || "Flyint")), i.a.createElement("p", {
                     className: "text-uppercase font-w700 font-size-sm text-muted"
-                }, window.settings.description || "V2Board is best")), i.a.createElement("div", {
+                }, window.settings.description || "Flyint is best")), i.a.createElement("div", {
                     className: "form-group"
                 }, i.a.createElement("input", {
                     type: "text",
@@ -27974,9 +27974,9 @@
                     href: "javascript:void(0);"
                 }, i.a.createElement("span", {
                     className: "text-dark"
-                }, window.settings.title || "V2Board")), i.a.createElement("p", {
+                }, window.settings.title || "Flyint")), i.a.createElement("p", {
                     className: "text-uppercase font-w700 font-size-sm text-muted"
-                }, window.settings.description || "V2Board is best")), s ? i.a.createElement("div", {
+                }, window.settings.description || "Flyint")), s ? i.a.createElement("div", {
                     className: "content content-full text-center"
                 }, i.a.createElement("div", {
                     className: "spinner-grow text-primary",
@@ -36515,9 +36515,9 @@
                     href: "/"
                 }, i.a.createElement("span", {
                     className: "text-dark"
-                }, window.settings.title || "V2Board")), i.a.createElement("p", {
+                }, window.settings.title || "Flyint")), i.a.createElement("p", {
                     className: "text-uppercase font-w700 font-size-sm text-muted"
-                }, window.settings.description || "V2Board is best")), i.a.createElement("div", {
+                }, window.settings.description || "Flyint is best")), i.a.createElement("div", {
                     className: "form-group"
                 }, i.a.createElement("input", {
                     type: "text",
