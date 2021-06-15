@@ -2,7 +2,7 @@ window.settings = {
   // 站点标题
   title: 'Flyint',
   // 站点描述
-  description: 'Flyinnt is best',
+  description: 'Flyint is best',
   // API
   host: '',
   // 主题
