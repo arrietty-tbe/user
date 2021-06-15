@@ -1,8 +1,8 @@
 window.settings = {
   // 站点标题
-  title: 'V2Board',
+  title: 'Flyint',
   // 站点描述
-  description: 'V2Board is best',
+  description: 'Flyinnt is best',
   // API
   host: '',
   // 主题
