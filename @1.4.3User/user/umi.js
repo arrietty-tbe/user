@@ -18838,7 +18838,7 @@
             "plan.place_order": "\u4e0b\u5355",
             "plan.total": "\u603b\u8ba1",
             "plan.subscribe_change_title": "\u8ba2\u9605\u53d8\u66f4\u987b\u77e5",
-            "plan.subscribe_change_content": "\u5f53\u524d\u5957\u9910\u4f1a\u88ab\u65b0\u5957\u9910\u8986\u76d6!\u4f60\u786e\u8ba4\u7ee7\u7eed\u5417?",
+            "plan.subscribe_change_content": "\u5f53\u524d\u5957\u9910\u4f1a\u88ab\u65b0\u5957\u9910\u8986\u76d6!!!!\u4f60\u786e\u8ba4\u7ee7\u7eed\u5417?",
             "profile.user_center": "\u4e2a\u4eba\u4e2d\u5fc3",
             "profile.my_wallet": "\u6211\u7684\u94b1\u5305",
             "profile.balance_tip": "\u8d26\u6237\u4f59\u989d(\u4ec5\u6d88\u8d39)",
