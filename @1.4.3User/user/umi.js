@@ -39129,11 +39129,11 @@
                     class: "alert alert-danger"
                 }, d.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "请经常", d.a.createElement("a", {
+                }, "务必经常", d.a.createElement("a", {
                     class: "alert-pink",
                     target: "_blank",
                     href: "/#/knowledge"
-                }, "更新订阅"), ",获取最新节点!")),
+                }, "更新订阅"), ",获取最新节点!否则影响使用!球球你了,看一眼!")),
                 d.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
