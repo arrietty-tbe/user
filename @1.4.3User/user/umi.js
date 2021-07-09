@@ -13298,12 +13298,12 @@
                     },o.a.createElement("h2", {
                         className: "block-title"
                     },o.a.createElement("strong", {
-                    }, "注意:")),
+                    }, "务必注意:")),
                     o.a.createElement("ul", {
                     },
                     o.a.createElement("li", {
                     },o.a.createElement("b", {
-                    }, "付款: "), "本站不支持原路退款操作,请先试用再做选择.感谢理解"),
+                    }, "付款: "), "本站不支持退款操作,请先试用再决定购买! 感谢理解"),
                     o.a.createElement("li", {
                     },o.a.createElement("b", {
                     }, "对您的约束: "), "您将无法通过代理访问少数特定极端站点."),
