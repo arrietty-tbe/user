@@ -23863,8 +23863,8 @@
                         title: Object(v["formatMessage"])({
                             id: "traffic.table_record_time"
                         }),
-                        dataIndex: "log_at",
-                        key: "log_at",
+                        dataIndex: "created_at",
+                        key: "created_at",
                         render: e => {
                             return e ? m()(1e3 * e).format("YYYY/MM/DD HH:mm") : "-"
                         }
