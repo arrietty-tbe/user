@@ -33409,10 +33409,11 @@
                                         }
                                     });
                                 case 12:
-                                    window.Tawk_API && (window.Tawk_API.visitor = {
-                                        name: r.data.email,
-                                        email: r.data.email
-                                    }), window.$crisp && window.$crisp.push(["set", "user:email", r.data.email]);
+                                    document.tidioIdentify = {
+                                    distinct_id: r.data.email,
+                                    email: r.data.email,
+                                    name: r.data.email
+                                    };
                                 case 14:
                                 case "end":
                                     return e.stop()
