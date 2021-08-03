@@ -27975,7 +27975,9 @@
                     href: "javascript:void(0);"
                 }, i.a.createElement("span", {
                     className: "text-dark"
-                }, window.settings.title || "Flyint")), i.a.createElement("p", {
+                }, window.settings.title || "Flyint")), i.a.createElement("div", {
+                    className: "text-uppercase font-w700 font-size-sm text-muted"
+                }, "禁止临时邮箱注册,否则封禁!"), i.a.createElement("p", {
                     className: "text-uppercase font-w700 font-size-sm text-muted"
                 }, window.settings.description || "Flyint")), s ? i.a.createElement("div", {
                     className: "content content-full text-center"
