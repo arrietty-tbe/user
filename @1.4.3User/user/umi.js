@@ -13331,7 +13331,7 @@
                         className: ""
                     },o.a.createElement("b", {
                         className: ""
-                    }, "隐私安全: "), "我们无法获取和查看除账户邮箱以外的任何信息."),
+                    }, "警告: 请勿涉及黑灰产业!否则封禁!")),
                     o.a.createElement("li", {
                         className: ""
                     },o.a.createElement("b", {
