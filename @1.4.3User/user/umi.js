@@ -13376,15 +13376,7 @@
                         dangerouslySetInnerHTML: {
                             __html: e.content
                         }
-                    })) : "", o.a.createElement("div", {
-                        className: "block-content block-content-full bg-body-light"
-                    }, o.a.createElement("span", {
-                        className: "btn btn-hero-primary px-4"
-                    }, o.a.createElement("i", {
-                        className: "fa fa-thumbs-up mr-1"
-                    }), Object(u["formatMessage"])({
-                        id: "plan.buy"
-                    })))))
+                    })) : ""))
                 })))))
             }
         }
@@ -23866,7 +23858,7 @@
                         dataIndex: "created_at",
                         key: "created_at",
                         render: e => {
-                            return e ? m()(1e3 * e).format("YYYY/MM/DD HH:mm") : "-"
+                            return e ? m()(1e3 * e).format("YYYY/MM/DD") : "-"
                         }
                     }, {
                         title: Object(v["formatMessage"])({
@@ -25066,7 +25058,7 @@
                     class: "alert alert-warning"
                 }, o.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "如果使用教程显示空白页面,请更换浏览器再尝试访问!")),
+                }, "仔细阅读会节约您的操作时间")),
                 o.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(s["formatMessage"])({
@@ -39126,11 +39118,7 @@
                     class: "alert alert-danger"
                 }, d.a.createElement("p", {
                     class: "mb-0 font-w700"
-                }, "务必经常", d.a.createElement("a", {
-                    class: "alert-pink",
-                    target: "_blank",
-                    href: "/#/knowledge"
-                }, "更新订阅"), ",获取最新节点!球你了,看一眼!")),
+                }, "如遇问题请随时联系我们获取帮助!")),
                 d.a.createElement("h2", {
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
@@ -39231,11 +39219,7 @@
                     className: "font-w300 mt-4 mb-3"
                 }, Object(E["formatMessage"])({
                     id: "subscribe.node_status"
-                }))), d.a.createElement("p", {
-                    className: "font-size-sm text-muted mb-0"
-                },d.a.createElement("span", {
-                    className: "ant-tag"
-                },"流媒体解锁"),":可观看Netflix/Hulu/TVB/... 版权资源"),
+                }))),
                 n ? d.a.createElement("div", {
                     className: "spinner-grow text-primary",
                     role: "status"
